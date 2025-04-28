@@ -1,103 +1,72 @@
 import Image from "next/image";
+import AboutUs from '@/components/AboutUs'
+import UpdatesList from '@/components/UpdatesList'
+import Gallery from '@/components/Gallery'
+import TopInfoBar from "@/components/TopInfoBar";
+import AnnouncementBar from "@/components/AnnouncementBar";
+import Header from "@/components/Header";
+import Navigation from "@/components/Navigation";
+import HeroCarousel from "@/components/HeroCarousel";
+import Testimonials from "@/components/Testimonials";
+import TrainingPrograms from "@/components/TrainingPrograms";
+import Footer from "@/components/Footer";
+import VisionMission from "@/components/VisionMission";
+import photo1 from '@/assets/photo1.jpg'
+import photo2 from '@/assets/photo2.jpg'
+import photo3 from '@/assets/photo3.jpg'
+import photo4 from '@/assets/photo4.jpg'
+// import { Carousel } from 'react-responsive-carousel'
+
+const carouselItems = [
+  {
+    title: `"If death strikes before I prove my blood, I swear I’ll kill death."`,
+    subtitle: "The uniform isn’t given. It’s earned. Will you earn it?",
+    image: photo1
+  },
+  {
+    title: `"We are the men in white. We rule the oceans, we protect the coasts, we strike from the deep."`,
+    subtitle: "Think you’re tough? Prove it where it counts.",
+    image: photo2
+  },
+  {
+    title: `"The ground trembles when we take off. So does the enemy."`,
+    subtitle: "“Can you stand where others hesitate?”",
+    image: photo4
+  } 
+]
+
+const appendText = 'Written Coaching'
+
+export const menuItems = {
+  'HOME': [],
+  'WRITTEN EXAM COACHING': [
+    `NDA ${appendText}`, `CDS ${appendText}`, `AFCAT ${appendText}`, `CAPF ${appendText}`
+  ],
+  'SSB INTERVIEW': [
+    'SSB Procedure', 'Screening Coaching', '14 Days Schedule', 'Fee Structure', 'GTO Ground', 'Selected Candidates'
+  ],
+  /* 'OUR BRANCHES': [
+    'Secunderabad', 'Hyderabad', 'Vizag', 'Bangalore'
+  ], */
+  'GALLERY': [],
+  'FAQ': [],
+  /* 'SSB HELP': [
+    'SSB Procedure', 'SSB Experience', 'Success Stories', 'Downloads'
+  ], */
+  'CONTACT US': []
+}
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+    <div className="min-h-screen bg-white">
+      {/* <AnnouncementBar /> */}
+      <HeroCarousel items={carouselItems} />
+      <AboutUs />
+      <VisionMission />
+      <UpdatesList />
+      <Testimonials />
+      <Gallery />
+      <TrainingPrograms />
     </div>
-  );
+  )
 }
