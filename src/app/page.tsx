@@ -9,6 +9,7 @@ import VisionMission from "@/components/VisionMission";
 import photo1 from '@/assets/photo1.jpg'
 import photo2 from '@/assets/photo2.jpg'
 import photo4 from '@/assets/photo4.jpg'
+export const dynamic = 'force-dynamic';
 
 const carouselItems = [
   {

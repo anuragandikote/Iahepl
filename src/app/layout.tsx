@@ -6,6 +6,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Navigation from '@/components/Navigation'
 import { menuItems } from './page'
+export const dynamic = 'force-dynamic';
 
 const inter = Inter({ subsets: ['latin'] })
 
