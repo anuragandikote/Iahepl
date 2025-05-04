@@ -1,11 +1,21 @@
-'use client'
+'use client';
+
+type Props = {
+    params: {
+        program: string;
+    };
+    searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export const dynamic = 'force-dynamic';
+
 import Link from "next/link";
 import { programsData, type ProgramContent } from "@/data/programsData";
 import ProgramHeader from "@/components/ProgramHeader";
 import { useState, useEffect } from "react";
 
-export default function ProgramPage({ params }: { params: { program: string } }) {
-    const program = programsData[params.program]
+export default function ProgramPage({ params }: Props) {
+    const program = programsData[params.program];
     const [activeSection, setActiveSection] = useState<string>('examination');
 
     if (!program) {
@@ -70,7 +80,14 @@ export default function ProgramPage({ params }: { params: { program: string } })
                                     href={`#section-${idx}`}
                                     className={`ml-10 text-xs inline-block px-4 py-2 font-bold transition-colors relative group
                                         ${activeSection === `section-${idx}` ? 'text-red-800' : 'text-gray-600 hover:text-red-800'}`}
-                                    onClick={() => setActiveSection(`section-${idx}`)}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        setActiveSection(`section-${idx}`);
+                                        const element = document.getElementById(`section-${idx}`);
+                                        if (element) {
+                                            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                        }
+                                    }}
                                 >
                                     {section.heading}
                                     <span
@@ -87,6 +104,7 @@ export default function ProgramPage({ params }: { params: { program: string } })
             <div className="max-w-7xl mx-auto px-4 py-8">
                 {program.sections?.map((section, idx) => (
                     <section
+                        key={idx}
                         id={`section-${idx}`}
                         className="mb-16 scroll-mt-32"
                     >

@@ -1,7 +1,13 @@
 export const dynamic = 'force-dynamic';
 
+type Props = {
+    params: {
+        topic: string;
+    };
+    searchParams: { [key: string]: string | string[] | undefined };
+};
 
-export default function SSBHelpPage({ params }: { params: { topic: string } }) {
+export default async function SSBHelpPage({ params }: Props) {
     return (
         <div className="container mx-auto px-4 py-8">
             <h1 className="text-3xl font-bold text-red-900 mb-6">
@@ -9,5 +15,5 @@ export default function SSBHelpPage({ params }: { params: { topic: string } }) {
             </h1>
             {/* Add SSB help topic specific content */}
         </div>
-    )
+    );
 }

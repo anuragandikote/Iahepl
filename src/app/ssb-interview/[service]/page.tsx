@@ -1,5 +1,14 @@
-'use client'
+'use client';
+
+type Props = {
+    params: {
+        service: string;
+    };
+    searchParams: { [key: string]: string | string[] | undefined };
+};
+
 export const dynamic = 'force-dynamic';
+
 import { ssbServiceData } from "@/data/ssbServiceData";
 import Link from "next/link";
 import { useState } from "react";
@@ -28,7 +37,7 @@ function renderDaySection(dayData?: any, id?: string) {
     );
 }
 
-export default function SSBServicePage({ params }: { params: { service: string } }) {
+export default function SSBServicePage({ params }: Props) {
     const serviceData = ssbServiceData[params.service];
     const [activeTab, setActiveTab] = useState('process');
 
