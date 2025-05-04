@@ -8,7 +8,7 @@ import Image from "next/image"
 type CarouselItem = {
   title: string
   subtitle: string
-  image: any // Accept Next.js static image import
+  image: any
 }
 
 type HeroCarouselProps = {

@@ -2,20 +2,13 @@ import Image from "next/image";
 import AboutUs from '@/components/AboutUs'
 import UpdatesList from '@/components/UpdatesList'
 import Gallery from '@/components/Gallery'
-import TopInfoBar from "@/components/TopInfoBar";
-import AnnouncementBar from "@/components/AnnouncementBar";
-import Header from "@/components/Header";
-import Navigation from "@/components/Navigation";
 import HeroCarousel from "@/components/HeroCarousel";
 import Testimonials from "@/components/Testimonials";
 import TrainingPrograms from "@/components/TrainingPrograms";
-import Footer from "@/components/Footer";
 import VisionMission from "@/components/VisionMission";
 import photo1 from '@/assets/photo1.jpg'
 import photo2 from '@/assets/photo2.jpg'
-import photo3 from '@/assets/photo3.jpg'
 import photo4 from '@/assets/photo4.jpg'
-// import { Carousel } from 'react-responsive-carousel'
 
 const carouselItems = [
   {
@@ -43,7 +36,7 @@ export const menuItems = {
     `NDA ${appendText}`, `CDS ${appendText}`, `AFCAT ${appendText}`, `CAPF ${appendText}`
   ],
   'SSB INTERVIEW': [
-    'SSB Procedure', 'Screening Coaching', '14 Days Schedule', 'Fee Structure', 'GTO Ground', 'Selected Candidates'
+    'SSB Procedure',/*  'Screening Coaching', '14 Days Schedule', 'Fee Structure', 'GTO Ground', 'Selected Candidates' */
   ],
   /* 'OUR BRANCHES': [
     'Secunderabad', 'Hyderabad', 'Vizag', 'Bangalore'

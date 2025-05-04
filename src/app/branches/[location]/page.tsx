@@ -1,4 +1,10 @@
-export default function BranchPage({ params }: { params: { location: string } }) {
+type PageProps = {
+    params: {
+        location: string;
+    };
+};
+
+export default function BranchPage({ params }: PageProps) {
     return (
         <div className="container mx-auto px-4 py-8">
             <h1 className="text-3xl font-bold text-red-900 mb-6">
@@ -6,5 +12,5 @@ export default function BranchPage({ params }: { params: { location: string } })
             </h1>
             {/* Add branch specific content */}
         </div>
-    )
+    );
 }
