@@ -1,4 +1,4 @@
-export const dynamic = 'force-dynamic';
+'use client';
 
 type Props = {
     params: {
@@ -6,7 +6,9 @@ type Props = {
     };
 };
 
-export default async function BranchPage({ params }: Props) {
+export const dynamic = 'force-dynamic';
+
+export default function BranchPage({ params }: Props) {
     return (
         <div className="container mx-auto px-4 py-8">
             <h1 className="text-3xl font-bold text-red-900 mb-6">
