@@ -1,16 +1,19 @@
 'use client';
 
+type Params = {
+    service: string;
+};
+
 type Props = {
-    params: {
-        service: string;
-    };
+    params: Promise<Params> | Params;
 };
 
 export const dynamic = 'force-dynamic';
 
 import { ssbServiceData } from "@/data/ssbServiceData";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, use } from "react";
+import React from "react";
 
 function renderDaySection(dayData?: any, id?: string) {
     if (!dayData) return null;
@@ -37,7 +40,10 @@ function renderDaySection(dayData?: any, id?: string) {
 }
 
 export default function SSBServicePage({ params }: Props) {
-    const serviceData = ssbServiceData[params.service];
+    // Support both Promise and plain object
+    const serviceParams: Params = params instanceof Promise ? use(params) : params;
+
+    const serviceData = ssbServiceData[serviceParams.service];
     const [activeTab, setActiveTab] = useState('process');
 
     const scrollToSection = (tab: string) => {
@@ -124,11 +130,11 @@ export default function SSBServicePage({ params }: Props) {
                 </div>
 
                 {/* Day Tabs */}
-                { renderDaySection(serviceData.day1, 'day-1')}
-                { renderDaySection(serviceData.day2, 'day-2')}
-                { renderDaySection(serviceData.day3, 'day-3')}
-                { renderDaySection(serviceData.day4, 'day-4')}
-                { renderDaySection(serviceData.day5, 'day-5')}
+                {renderDaySection(serviceData.day1, 'day-1')}
+                {renderDaySection(serviceData.day2, 'day-2')}
+                {renderDaySection(serviceData.day3, 'day-3')}
+                {renderDaySection(serviceData.day4, 'day-4')}
+                {renderDaySection(serviceData.day5, 'day-5')}
 
                 {/* Preparation Tab */}
                 {activeTab === 'preparation' && (

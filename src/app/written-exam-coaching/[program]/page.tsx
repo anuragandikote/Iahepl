@@ -1,19 +1,24 @@
 'use client';
-
-type Props = {
-    params: {
-        program: string;
-    };
-};
-
 export const dynamic = 'force-dynamic';
-
 import Link from "next/link";
+import { use } from 'react';
 import { programsData, type ProgramContent } from "@/data/programsData";
 import { useState } from "react";
+import React from "react";
+
+type Params = {
+    program: string;
+};
+
+type Props = {
+    params: Promise<Params> | Params;
+};
 
 export default function ProgramPage({ params }: Props) {
-    const program = programsData[params.program];
+    // Support both Promise and plain object for now
+    const unwrappedParams: Params = params instanceof Promise ? use(params) : params;
+
+    const program = programsData[unwrappedParams.program];
     const [activeSection, setActiveSection] = useState<string>('examination');
 
     if (!program) {

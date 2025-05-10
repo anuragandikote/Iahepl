@@ -1,9 +1,20 @@
 'use client'
-import Slider from "react-slick"
-import "slick-carousel/slick/slick.min.js"
-import "slick-carousel/slick/slick.css"
-import "slick-carousel/slick/slick-theme.css"
+import { useState, useEffect } from "react"
 import Image from "next/image"
+import dynamic from "next/dynamic"
+
+// Dynamically import Slider with no SSR
+const Slider = dynamic(() => import("react-slick"), { ssr: false })
+
+// Import CSS only on the client side
+function SlickCSS() {
+  useEffect(() => {
+    require("slick-carousel/slick/slick.css")
+    require("slick-carousel/slick/slick-theme.css")
+    require("slick-carousel/slick/slick.min.js")
+  }, [])
+  return null
+}
 
 type CarouselItem = {
   title: string
@@ -16,6 +27,12 @@ type HeroCarouselProps = {
 }
 
 export default function HeroCarousel({ items }: HeroCarouselProps) {
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
   const settings = {
     dots: true,
     infinite: true,
@@ -27,8 +44,20 @@ export default function HeroCarousel({ items }: HeroCarouselProps) {
     arrows: true
   }
 
+  if (!isClient) {
+    return (
+      <div className="relative h-[400px] md:h-[600px] bg-gray-800">
+        <div className="relative z-20 max-w-6xl mx-auto px-4 py-8 md:py-16 text-white h-full flex flex-col justify-center items-start">
+          <div className="w-16 h-1 bg-yellow-400 rounded mb-4"></div>
+          <h2 className="font-serif text-2xl md:text-4xl font-extrabold italic mb-4 drop-shadow-lg leading-snug tracking-tight">Loading...</h2>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="relative">
+      <SlickCSS />
       <Slider {...settings}>
         {items.map((item, index) => (
           <div key={index} className="relative h-[400px] md:h-[600px]">
