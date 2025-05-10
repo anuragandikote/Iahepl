@@ -4,7 +4,6 @@ type Props = {
     params: {
         service: string;
     };
-    searchParams: { [key: string]: string | string[] | undefined };
 };
 
 export const dynamic = 'force-dynamic';

@@ -4,15 +4,13 @@ type Props = {
     params: {
         program: string;
     };
-    searchParams: { [key: string]: string | string[] | undefined };
 };
 
 export const dynamic = 'force-dynamic';
 
 import Link from "next/link";
 import { programsData, type ProgramContent } from "@/data/programsData";
-import ProgramHeader from "@/components/ProgramHeader";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function ProgramPage({ params }: Props) {
     const program = programsData[params.program];
