@@ -4,7 +4,6 @@ type Props = {
     params: {
         location: string;
     };
-    searchParams: { [key: string]: string | string[] | undefined };
 };
 
 export default async function BranchPage({ params }: Props) {
