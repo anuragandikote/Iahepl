@@ -6,19 +6,19 @@ import { programsData, type ProgramContent } from "@/data/programsData";
 import { useState } from "react";
 import React from "react";
 
-type Params = {
-    program: string;
-};
+type Params = Promise<{ program: string }>;
 
 type Props = {
     params: Promise<Params> | Params;
 };
 
-export default function ProgramPage({ params }: Props) {
-    // Support both Promise and plain object for now
-    const unwrappedParams: Params = params instanceof Promise ? use(params) : params;
+export default function ProgramPage({
+    params,
+}: {
+    params: Params;
+}) {
 
-    const program = programsData[unwrappedParams.program];
+    const program = programsData[use(params).program];
     const [activeSection, setActiveSection] = useState<string>('examination');
 
     if (!program) {

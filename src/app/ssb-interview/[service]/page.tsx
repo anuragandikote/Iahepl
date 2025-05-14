@@ -1,8 +1,6 @@
 'use client';
 
-type Params = {
-    service: string;
-};
+type Params = Promise<{ service: string }>;
 
 type Props = {
     params: Promise<Params> | Params;
@@ -39,11 +37,13 @@ function renderDaySection(dayData?: any, id?: string) {
     );
 }
 
-export default function SSBServicePage({ params }: Props) {
-    // Support both Promise and plain object
-    const serviceParams: Params = params instanceof Promise ? use(params) : params;
+export default function SSBServicePage({
+    params,
+}: {
+    params: Params;
+}) {
 
-    const serviceData = ssbServiceData[serviceParams.service];
+    const serviceData = ssbServiceData[use(params).service];
     const [activeTab, setActiveTab] = useState('process');
 
     const scrollToSection = (tab: string) => {
