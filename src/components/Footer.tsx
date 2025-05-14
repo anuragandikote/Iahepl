@@ -25,10 +25,10 @@ export default function Footer() {
           </div>
 
           {/* Latest Tweets */}
-          <div>
+          {/* <div>
             <h3 className="text-xl font-semibold mb-4">Latest Tweets</h3>
             <p className="text-gray-400 text-sm">Please wait...</p>
-          </div>
+          </div> */}
 
           {/* Contact Us */}
           <div>
@@ -82,7 +82,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 pt-4 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-2">
             <Image
-              src="/impact_logo.png"
+              src="/Impact_logo.png"
               alt="Impact Academy Logo"
               width={100}
               height={40}

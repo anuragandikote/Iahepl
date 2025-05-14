@@ -63,6 +63,8 @@ export default function HeroCarousel({ items }: HeroCarouselProps) {
           <div key={index} className="relative h-[400px] md:h-[600px]">
             <div className="absolute inset-0">
               <Image
+                width={1920}
+                height={1080}
                 src={item.image}
                 alt={item.title}
                 className={index === 0 ? "object-cover object-center w-full h-full" : "object-top w-full "}

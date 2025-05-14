@@ -1,8 +1,4 @@
-import photo1 from "@/assets/photo1.jpg";
-import photo2 from "@/assets/photo2.jpg";
-import photo3 from "@/assets/photo3.jpg";
-import photo4 from "@/assets/photo4.jpg";
-import group1 from "@/assets/group_1.jpeg";
+
 import coaching1 from "@/assets/coaching_1.jpeg";
 import coaching2 from "@/assets/coaching_2.jpeg";
 import coaching3 from "@/assets/coaching_3.jpeg";
@@ -42,9 +38,9 @@ export default function GalleryPage() {
                 <section className="mb-12">
                     <h2 className="text-2xl font-semibold text-gray-800 mb-4">Outdoor Training</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                        <Image src={outdoor1} alt="Outdoor Training 1" width={800} height={600} className="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300" />
-                        <Image src={outdoor2} alt="Outdoor Training 2" width={800} height={600} className="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300" />
-                        <Image src={outdoor3} alt="Outdoor Training 3" width={800} height={600} className="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300" />
+                        <Image src={'/outdoor_1.jpg'} alt="Outdoor Training 1" width={800} height={600} className="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300" />
+                        <Image src={'/outdoor_2.jpg'} alt="Outdoor Training 2" width={800} height={600} className="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300" />
+                        <Image src={'/outdoor_3.jpg'} alt="Outdoor Training 3" width={800} height={600} className="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300" />
                     </div>
                 </section>
 
@@ -52,9 +48,9 @@ export default function GalleryPage() {
                 <section className="mb-12">
                     <h2 className="text-2xl font-semibold text-gray-800 mb-4">Coaching</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                        <Image src={coaching1} alt="Coaching 1" width={800} height={600} className="w-full h-auto rounded-lg shadow-lg hover:scale-105 transition-transform duration-300" />
-                        <Image src={coaching2} alt="Coaching 2" width={800} height={600} className="w-full h-auto rounded-lg shadow-lg hover:scale-105 transition-transform duration-300" />
-                        <Image src={coaching3} alt="Coaching 3" width={800} height={600} className="w-full h-auto rounded-lg shadow-lg hover:scale-105 transition-transform duration-300" />
+                        <Image src={'/coaching_1.jpg'} alt="Coaching 1" width={800} height={600} className="w-full h-auto rounded-lg shadow-lg hover:scale-105 transition-transform duration-300" />
+                        <Image src={'/coaching_2.jpg'} alt="Coaching 2" width={800} height={600} className="w-full h-auto rounded-lg shadow-lg hover:scale-105 transition-transform duration-300" />
+                        <Image src={'/coaching_3.jpg'} alt="Coaching 3" width={800} height={600} className="w-full h-auto rounded-lg shadow-lg hover:scale-105 transition-transform duration-300" />
                     </div>
                 </section>
 

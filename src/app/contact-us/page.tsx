@@ -66,7 +66,7 @@ export default function ContactPage() {
                         <div>✉️ iahepl.secunderabad@gmail.com</div>
                     </div>
                     <Image
-                        src={photo1}
+                        src={'/photo1.jpg'}
                         alt="Cadets"
                         className="rounded-lg shadow-lg mt-6 w-full object-cover h-32 md:h-40"
                     />
