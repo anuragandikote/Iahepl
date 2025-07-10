@@ -19,7 +19,6 @@ const TestimonialsSection = () => (
         <Image
           key={idx}
           src={src}
-          fill
           unoptimized
           priority
           alt={`Student ${idx + 1}`}
