@@ -23,7 +23,7 @@ const programs: Program[] = [
 export default function TrainingPrograms() {
   return (
     <section className="py-16 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="container mx-auto px-4">
         <SectionTitle title="Training" highlightedWord="Programs" />
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {programs.map((program, index) => (

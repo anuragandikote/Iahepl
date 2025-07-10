@@ -68,6 +68,7 @@ export default function ContactPage() {
                     <Image
                         src={'/photo1.jpg'}
                         alt="Cadets"
+                        fill
                         className="rounded-lg shadow-lg mt-6 w-full object-cover h-32 md:h-40"
                     />
                 </div>

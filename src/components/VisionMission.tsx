@@ -3,7 +3,7 @@ import React from "react";
 export default function VisionMission() {
     return (
         <section className="py-10 sm:py-14 md:py-16 px-4 sm:px-6 md:px-8 bg-gradient-to-br from-[#f7f3f2] via-[#fff] to-[#fbeee6]">
-            <div className="max-w-4xl mx-auto">
+            <div className="container mx-auto px-4">
                 {/* Vision */}
                 <div className="mb-10 sm:mb-12">
                     <div className="flex items-center mb-4">

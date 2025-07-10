@@ -8,10 +8,6 @@ import React from "react";
 
 type Params = Promise<{ program: string }>;
 
-type Props = {
-    params: Promise<Params> | Params;
-};
-
 export default function ProgramPage({
     params,
 }: {
@@ -165,5 +161,3 @@ export default function ProgramPage({
         </div>
     )
 }
-
-// Helper function (place this above your component or inside it)

@@ -1,32 +1,29 @@
-import Image from 'next/image'
-import ContactInfo from './ContactInfo'
+import Image from 'next/image';
 
 export default function Header() {
   return (
-    <header className="py-4 px-4 bg-white">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:justify-between md:items-center gap-4 md:gap-0">
-        <div className="w-40 md:mx-0 md:w-48 flex-shrink-0">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-[#2A2C30] shadow-md">
+      <div className="container mx-auto flex items-center justify-between px-4 md:px-16 py-3">
+        <div className="w-40 md:w-48 flex-shrink-0">
           <Image
-            src="/impact_logo.png"
+            src="/images/logo.png"
             alt="Impact Academy Logo"
             width={200}
             height={80}
             priority
           />
         </div>
-        <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 md:gap-8 text-black items-start sm:items-center sm:justify-start">
-          <ContactInfo
-            icon="phone"
-            label="Get in touch with us"
-            value="+91 7989050069"
-          />
-          <ContactInfo
-            icon="email"
-            label="Send us an e-mail"
-            value="iahepl.secunderabad@gmail.com"
+
+        <div className="flex items-center gap-2">
+          {/* Placeholder for additional icons or buttons */}
+          <Image
+            fill
+            src="/images/logo.png"
+            alt="Impact Logo"
+            className="h-6 w-auto hidden"
           />
         </div>
       </div>
     </header>
-  )
+  );
 }

@@ -41,11 +41,11 @@ export default function Navigation({ menuItems }: NavigationProps) {
     }
 
     return (
-        <nav className="bg-red-900 text-white relative z-50">
-            <div className="max-w-7xl mx-auto flex items-center justify-between h-10 px-2 md:px-0">
+        <nav className="bg-[#a68272] text-white relative z-49">
+            <div className="container mx-auto flex justify-between h-10 px-16 md:px-16">
                 {/* Hamburger for mobile */}
                 <button
-                    className="md:hidden flex items-center px-2 py-2 focus:outline-none"
+                    className="md:hidden flex ml-auto px-2 py-2"
                     onClick={() => setMobileMenuOpen((prev) => !prev)}
                     aria-label="Toggle menu"
                 >
@@ -67,7 +67,7 @@ export default function Navigation({ menuItems }: NavigationProps) {
                             onMouseLeave={() => setActiveDropdown(null)}
                         >
                             <Link href={getItemLink(item)}>
-                                <div className={`px-4 py-2 text-xs hover:bg-white hover:text-red-800 hover:rounded-sm cursor-pointer flex items-center gap-2 transition-colors duration-100 ease-in-out ${activeDropdown === item ? 'bg-white text-red-800' : ''}`}>
+                                <div className={`px-4 py-2 cursor-pointer text-xs hover:bg-[#deccb8] hover:text-black hover:rounded-sm flex items-center gap-2 transition-colors duration-100 ease-in-out ${activeDropdown === item ? 'bg-white text-red-800' : ''}`}>
                                     {item}
                                     {dropdownItems.length > 0 && (
                                         <svg
@@ -87,11 +87,11 @@ export default function Navigation({ menuItems }: NavigationProps) {
                                 </div>
                             </Link>
                             {dropdownItems.length > 0 && activeDropdown === item && (
-                                <ul className="absolute top-full left-0 bg-white w-auto shadow-lg z-50 rounded-b-md overflow-hidden">
+                                <ul className="absolute top-full left-0 bg-[#deccb8] w-auto shadow-lg z-50 rounded-b-md overflow-hidden">
                                     {dropdownItems.map((subItem) => (
                                         <li
                                             key={subItem}
-                                            className="px-4 py-3 m-1 text-xs text-black rounded-sm hover:bg-red-900 hover:text-white cursor-pointer whitespace-nowrap transition-colors duration-100 ease-in-out"
+                                            className="px-4 py-3 m-1 text-xs text-black rounded-sm hover:bg-[#deccb8] hover:text-black hover:scale-100 hover:font-bold cursor-pointer whitespace-nowrap transition-colors duration-100 ease-in-out"
                                         >
                                             <Link
                                                 href={getItemLink(item, subItem)}
@@ -109,7 +109,7 @@ export default function Navigation({ menuItems }: NavigationProps) {
             </div>
             {/* Mobile Menu */}
             <div className={`md:hidden transition-all duration-200 ${mobileMenuOpen ? 'block' : 'hidden'}`}>
-                <ul className="flex flex-col bg-red-900 w-full">
+                <ul className="flex flex-col bg-red-800 w-full">
                     {Object.entries(menuItems).map(([item, dropdownItems]) => (
                         <li key={item} className="relative border-b border-red-800">
                             <div

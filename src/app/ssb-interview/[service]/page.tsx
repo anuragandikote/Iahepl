@@ -1,30 +1,22 @@
-'use client';
-
-type Params = Promise<{ service: string }>;
-
-type Props = {
-    params: Promise<Params> | Params;
-};
-
-export const dynamic = 'force-dynamic';
-
-import { ssbServiceData } from "@/data/ssbServiceData";
+"use client"
 import Link from "next/link";
 import { useState, use } from "react";
-import React from "react";
+import { ssbServiceData } from "@/data/ssbServiceData";
+
+type Params = Promise<{ service: string }>;
 
 function renderDaySection(dayData?: any, id?: string) {
     if (!dayData) return null;
     return (
         <div id={id} className="mt-10">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 border-l-4 border-red-800 pl-4">{dayData.title}</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6 border-l-4 border-black pl-4">{dayData.title}</h2>
             <section className="text-black">{dayData.description}</section>
             {Object.entries(dayData)
                 .filter(([key]) => !['title', 'description'].includes(key))
                 .map(([key, value]: any, idx) => (
                     value?.title && value?.points ? (
                         <div key={key}>
-                            <section className="mt-5 text-xl font-bold text-red-800">{value.title}</section>
+                            <section className="mt-5 text-xl font-bold text-black">{value.title}</section>
                             <ul className="list-disc pl-5 space-y-3 mt-2">
                                 {value.points.map((item: string, i: number) => (
                                     <li key={i} className="text-gray-700">{item}</li>
@@ -37,11 +29,7 @@ function renderDaySection(dayData?: any, id?: string) {
     );
 }
 
-export default function SSBServicePage({
-    params,
-}: {
-    params: Params;
-}) {
+export default function SSBServicePage({params}: {params: Params}) {
 
     const serviceData = ssbServiceData[use(params).service];
     const [activeTab, setActiveTab] = useState('process');
@@ -71,10 +59,10 @@ export default function SSBServicePage({
     }
 
     return (
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen bg-gradient-to-b from-[#fffffa] to-[#a68272]">
             {/* Header */}
-            <div className="bg-black px-6 py-8">
-                <div className="max-w-6xl mx-auto">
+            <div className="bg-[#fbf9f4] px-6 py-8">
+                <div className="container px-16 mx-auto">
                     <div className="py-2">
                         <h1 className="text-sm flex items-center gap-2">
                             <Link href="/" className="text-red-800 hover:text-red-700">Home</Link>
@@ -84,8 +72,8 @@ export default function SSBServicePage({
                             <span className="text-gray-400">{serviceData.title}</span>
                         </h1>
                     </div>
-                    <h1 className="text-3xl text-white mt-4">{serviceData.title}</h1>
-                    <div className="h-[5px] bg-red-800 mt-2 w-80"></div>
+                    <h1 className="text-3xl text-black mt-4">{serviceData.title}</h1>
+                    <div className="h-[5px] bg-black mt-2 w-80"></div>
                 </div>
             </div>
 
@@ -120,10 +108,10 @@ export default function SSBServicePage({
             </div> */}
 
             {/* Main Content */}
-            <div className="max-w-6xl mx-auto px-4 py-8">
+            <div className="container mx-auto px-16 py-8">
                 {/* Description */}
                 <div id="what-is-ssb">
-                    <h2 className="text-2xl font-bold text-gray-800 mb-6 border-l-4 border-red-800 pl-4">What is SSB?</h2>
+                    <h2 className="text-2xl font-bold text-gray-800 mb-6 border-l-4 border-black pl-4">What is SSB?</h2>
                     <div className="mb-10">
                         <p className="text-lg text-gray-700 leading-relaxed">{serviceData.description}</p>
                     </div>
@@ -139,11 +127,11 @@ export default function SSBServicePage({
                 {/* Preparation Tab */}
                 {activeTab === 'preparation' && (
                     <div>
-                        <h2 className="text-2xl font-bold text-gray-800 mb-6 border-l-4 border-red-800 pl-4">Preparation Focus Areas</h2>
+                        <h2 className="text-2xl font-bold text-gray-800 mb-6 border-l-4 border-black pl-4">Preparation Focus Areas</h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {serviceData.preparation.map((item: string, index: number) => (
                                 <div key={index} className="bg-gray-50 p-5 rounded-lg shadow-sm flex items-start">
-                                    <div className="text-red-800 mr-3 mt-1">•</div>
+                                    <div className="text-black mr-3 mt-1">•</div>
                                     <p className="text-gray-700">{item}</p>
                                 </div>
                             ))}
@@ -154,11 +142,11 @@ export default function SSBServicePage({
                 {/* Features Tab */}
                 {activeTab === 'features' && (
                     <div>
-                        <h2 className="text-2xl font-bold text-gray-800 mb-6 border-l-4 border-red-800 pl-4">Program Features</h2>
+                        <h2 className="text-2xl font-bold text-gray-800 mb-6 border-l-4 border-black pl-4">Program Features</h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {serviceData.features.map((feature: string, index: number) => (
                                 <div key={index} className="bg-gray-50 p-5 rounded-lg shadow-sm flex items-start">
-                                    <div className="text-red-800 mr-3 mt-1">✓</div>
+                                    <div className="text-black mr-3 mt-1">✓</div>
                                     <p className="text-gray-700">{feature}</p>
                                 </div>
                             ))}

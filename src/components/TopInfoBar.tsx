@@ -1,6 +1,6 @@
 export default function TopInfoBar() {
   return (
-    <div className="bg-gray-100 py-2 text-sm text-black">
+    <div className="bg-gray-100 py-2 text-sm text-black mt-12 ">
       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center px-3 sm:px-4 max-w-7xl mx-auto gap-1 sm:gap-0 text-left">
         <span className="block">{`The #1 SSB Coaching Academy in South India`}</span>
         <span className="flex items-center gap-1 mt-1 sm:mt-0">

@@ -22,11 +22,9 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif, oswald;
 }
 
-
-/* Add these at the end of your globals.css file */
 .slick-dots {
   bottom: 25px !important;
 }
@@ -50,4 +48,32 @@ body {
 
 .slick-prev:before, .slick-next:before {
   font-size: 30px !important;
+}
+
+.animate-marquee-all{
+  display:flex;
+  animation: marquee 6s linear infinite;
+  width:max-content ;
+}
+
+.card-with-gradient-border{
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.card-with-gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  background: linear-gradient(0deg, #707070, #ded1ca);
+  z-index: 1;
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  border-radius: inherit;
+  mask-composite: exclude;
 }

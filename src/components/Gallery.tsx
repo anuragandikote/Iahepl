@@ -19,9 +19,8 @@ const students: Student[] = [
 export default function Gallery() {
   return (
     <section className="py-16 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4">
-        <SectionTitle title="Flying Stars of Impact Academy Of Human Excellence (HYD)" highlightedWord="" />
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <SectionTitle title="Flying Stars of" highlightedWord="Impact Academy Of Human Excellence (HYD)" />
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 container mx-auto px-4">
           {students.map((student, index) => (
             <div key={index} className="relative group">
               <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200">
@@ -40,7 +39,6 @@ export default function Gallery() {
             </div>
           ))}
         </div>
-      </div>
     </section>
   )
 }

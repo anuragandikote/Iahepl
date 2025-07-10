@@ -1,35 +1,38 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
-import TopInfoBar from '@/components/TopInfoBar'
+import './globals.css';
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Navigation from '@/components/Navigation'
-import { menuItems } from './page'
-export const dynamic = 'force-dynamic';
+import type { Metadata } from 'next'
+import { menuItems } from '@/features/home/data/home-data'
+import { Oswald } from 'next/font/google';
+import FloatingCallNow from '@/components/floating-call-now';
+import DelayedModal from '@/components/deleayedModal';
 
-const inter = Inter({ subsets: ['latin'] })
+const oswald = Oswald({
+  subsets: ['latin'],
+  weight: ['200', '300', '400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-oswald',
+});
 
 export const metadata: Metadata = {
-  title: 'Impact Academy',
+  title: 'Impact Academy of Human Excellence',
   description: 'Empowering future leaders through education',
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <main className="min-h-screen relative">
-          <TopInfoBar/>
+    <html lang="en" className={oswald.variable}>
+      <body className="font-oswald">
+        <main className="min-h-screen relative bg-white">
+          <DelayedModal/>
           <Header />
-          <div className="sticky top-0 z-50 bg-white shadow-lg">
+          <div className="sticky top-16 z-50 bg-white shadow-lg">
             <Navigation menuItems={menuItems} />
           </div>
           {children}
+          <FloatingCallNow />
           <Footer />
         </main>
       </body>
