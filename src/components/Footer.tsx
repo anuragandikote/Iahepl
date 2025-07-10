@@ -3,75 +3,92 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#a68272] text-white pt-12 pb-4 overflow-hidden">
-      {/* SVG Background */}̉̉
-      <div className="absolute inset-0 w-full h-[400px] z-0">
+    <footer className="relative bg-[#a68272] text-white pt-16 pb-6 overflow-hidden">
+      {/* SVG Background */}
+      <div className="absolute inset-0 z-0">
         <svg
-          xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1440 320"
           preserveAspectRatio="none"
           className="w-full h-full"
+          xmlns="http://www.w3.org/2000/svg"
         >
           <path
             fill="#e8ded4"
-            fillOpacity="0.49"
-            d="M0,64L30,64C60,64,120,64,180,69.3C240,75,300,85,360,101.3C420,117,480,139,540,138.7C600,139,660,117,720,90.7C780,64,840,32,900,26.7C960,21,1020,43,1080,74.7C1140,107,1200,149,1260,149.3C1320,149,1380,107,1410,85.3L1440,64L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"
+            fillOpacity="0.5"
+            d="M0,64L30,64C60,64,120,64,180,69.3C240,75,300,85,360,101.3C420,117,480,139,540,138.7C600,139,660,117,720,90.7C780,64,840,32,900,26.7C960,21,1020,43,1080,74.7C1140,107,1200,149,1260,149.3C1320,149,1380,107,1410,85.3L1440,64L1440,320L0,320Z"
           />
         </svg>
       </div>
 
-      {/* Footer Content */}
-      <div className="relative z-10 container mx-auto px-6 sm:px-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* Contact Us */}
+      {/* Content */}
+      <div className="relative z-10 container mx-auto px-6 sm:px-12 lg:px-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-10">
+          {/* Contact Info */}
           <div>
-            <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
-            <div className="text-white text-sm space-y-2">
-              <p className="flex items-start gap-2">
+            <h3 className="text-xl font-bold mb-4">Contact Us</h3>
+            <ul className="text-sm space-y-2">
+              <li className="flex gap-2">
                 <span>📍</span>
                 <span>
-                  #505/1/2, 2nd Floor, Beside Karishma Police Station, Karkhana,
-                  Secunderabad, 500015 (Telangana)
+                  #505/1/2, 2nd Floor, Beside Karkhana Police Station, Secunderabad, Telangana - 500015
                 </span>
-              </p>
-              <p className="flex items-center gap-2">
+              </li>
+              <li className="flex gap-2">
                 <span>📞</span>
                 <span>79890 50069, 97004 54572</span>
-              </p>
-              <p className="flex items-center gap-2">
+              </li>
+              <li className="flex gap-2">
                 <span>✉️</span>
                 <span>iahepl.secunderabad@gmail.com</span>
-              </p>
-            </div>
+              </li>
+            </ul>
           </div>
 
           {/* Follow Us */}
           <div>
-            <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
+            <h3 className="text-xl font-bold mb-4">Follow Us</h3>
             <div className="flex gap-4">
-              {[...Array(3)].map((_, i) => (
-                <Link key={i} href="#" className="text-white hover:text-[#a68272]">
-                  <div className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center">
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path
-                        d={
-                          i === 0
-                            ? 'M18.244 2.25h3.308l-7.227 8.26...'
-                            : i === 1
-                              ? 'M22 12c0-5.523-4.477-10-10-10...'
-                              : 'M12 2C6.477 2 2 6.477 2 12...'
-                        }
-                      />
-                    </svg>
-                  </div>
-                </Link>
-              ))}
+              <Link href="#" aria-label="Instagram" className="text-white hover:text-black">
+                <div className="bg-gray-800 p-2 rounded-full">
+                  <svg
+                    className="w-5 h-5"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75 5.75 0 007.75 22h8.5A5.75 5.75 0 0022 16.25v-8.5A5.75 5.75 0 0016.25 2h-8.5zM12 7.5A4.5 4.5 0 1112 16.5a4.5 4.5 0 010-9zm6.25-.75a1 1 0 110 2 1 1 0 010-2zM12 9a3 3 0 100 6 3 3 0 000-6z" />
+                  </svg>
+                </div>
+              </Link>
+              <Link href="#" aria-label="YouTube" className="text-white hover:text-black">
+                <div className="bg-gray-800 p-2 rounded-full">
+                  <svg
+                    className="w-5 h-5"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M21.8 8s-.2-1.5-.8-2.1c-.8-.8-1.7-.8-2.1-.9-2.9-.2-7.3-.2-7.3-.2s-4.4 0-7.3.2c-.5 0-1.3.1-2.1.9-.6.6-.8 2.1-.8 2.1S2 9.6 2 11.3v1.3c0 1.7.2 3.3.2 3.3s.2 1.5.8 2.1c.8.8 1.8.8 2.2.9 1.6.1 6.9.2 6.9.2s4.4 0 7.3-.2c.5 0 1.3-.1 2.1-.9.6-.6.8-2.1.8-2.1s.2-1.7.2-3.3v-1.3c0-1.7-.2-3.3-.2-3.3zM10 15V9l5 3-5 3z" />
+                  </svg>
+                </div>
+              </Link>
+              <Link href="#" aria-label="Facebook" className="text-white hover:text-black">
+                <div className="bg-gray-800 p-2 rounded-full">
+                  <svg
+                    className="w-5 h-5"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M13 3h4a1 1 0 011 1v4h-2.5A1.5 1.5 0 0014 9.5V11h4v3h-4v7h-3v-7H9v-3h2V9a4 4 0 014-4z" />
+                  </svg>
+                </div>
+              </Link>
             </div>
           </div>
+
+          {/* More sections (like About or Quick Links) can go here */}
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-gray-800 pt-4 flex flex-col md:flex-row justify-between items-center gap-4">
+        {/* Bottom bar */}
+        <div className="border-t border-white/30 pt-6 flex flex-col sm:flex-row justify-between items-center text-sm text-white/80 gap-4">
           <div className="flex items-center gap-2">
             <Image
               src="/images/logo.png"
@@ -80,22 +97,14 @@ export default function Footer() {
               height={40}
               unoptimized
               priority
-              className="brightness-0 invert"
+              className="invert brightness-0"
             />
-            <span className="text-sm text-gray-300">
-              © {new Date().getFullYear()} Impact Academy. All Rights Reserved.
-            </span>
+            <span>© {new Date().getFullYear()} Impact Academy. All Rights Reserved.</span>
           </div>
-          <div className="flex gap-6 text-sm text-gray-300">
-            <Link href="/privacy-policy" className="hover:text-white">
-              Privacy Policy
-            </Link>
-            <Link href="/" className="hover:text-white">
-              Home
-            </Link>
-            <Link href="/contact" className="hover:text-white">
-              Contact
-            </Link>
+          <div className="flex gap-4">
+            <Link href="/privacy-policy" className="hover:text-white">Privacy Policy</Link>
+            <Link href="/" className="hover:text-white">Home</Link>
+            <Link href="/contact" className="hover:text-white">Contact</Link>
           </div>
         </div>
       </div>

@@ -1,8 +1,8 @@
-"use client";
 import Image from "next/image";
 
 const HeroSection = () => (
-  <section className="relative overflow-hidden rounded-4xl mx-40 py-20 sm:px-8 text-center h-[300px] rounded-b-4xl">
+  <section className="relative overflow-hidden rounded-none sm:rounded-3xl sm:rounded-b-4xl mx-4 sm:mx-10 lg:mx-40 py-16 sm:py-20 text-center h-[250px] sm:h-[300px] lg:h-[400px]">
+    {/* Background Image */}
     <div className="absolute inset-0 z-0">
       <Image
         src="/images/india-gate-parade.jpg"
@@ -13,11 +13,13 @@ const HeroSection = () => (
         className="object-cover w-full h-full"
       />
     </div>
+
+    {/* Overlay Content */}
     <div className="relative z-10">
-      <h1 className="text-4xl sm:text-5xl font-oswald font-bold text-gray-900">
+      <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-oswald font-bold text-gray-900 px-4">
         NDA, CDS, AFCAT, SSB Coaching in Bharat
       </h1>
-      <p className="text-lg font-bold mt-4 text-black mx-auto max-w-2xl">
+      <p className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold mt-4 text-black mx-auto max-w-xl px-4">
         Real Army Officers as Mentors · Hostel Facility · Physical & Written Prep
       </p>
     </div>
