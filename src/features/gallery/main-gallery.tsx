@@ -77,6 +77,8 @@ const Section: React.FC<SectionProps> = ({ title, images, gridCols }) => (
                             alt={img.alt}
                             width={500}
                             height={500}
+                            unoptimized
+                            priority
                             className="w-full h-auto rounded-lg transform hover:scale-105 transition-transform duration-300"
                         />
                     </div>

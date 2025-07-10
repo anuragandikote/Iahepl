@@ -11,6 +11,7 @@ export default function Header() {
             width={200}
             height={80}
             priority
+            unoptimized
           />
         </div>
 
@@ -20,6 +21,8 @@ export default function Header() {
             fill
             src="/images/logo.png"
             alt="Impact Logo"
+            unoptimized
+            priority
             className="h-6 w-auto hidden"
           />
         </div>

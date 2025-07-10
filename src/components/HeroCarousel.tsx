@@ -69,7 +69,8 @@ export default function HeroCarousel({ items }: HeroCarouselProps) {
                 alt={item.title}
                 className={index === 0 ? "object-cover object-center w-full h-full" : "object-top w-full "}
                 style={{ zIndex: 0 }}
-                priority={index === 0}
+                unoptimized
+                priority
               />
               <div className="absolute inset-0 bg-gradient-to-r from-gray-900/60 to-transparent z-10"></div>
             </div>

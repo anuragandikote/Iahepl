@@ -22,6 +22,9 @@ const config: Config = {
       animation: {
         marquee: 'marquee 8s linear infinite',
       },
+      images: {
+        unoptimized: true,
+      },
     },
   },
   plugins: [],

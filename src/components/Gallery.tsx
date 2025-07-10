@@ -29,6 +29,8 @@ export default function Gallery() {
                   alt={student.name}
                   width={200}
                   height={200}
+                  unoptimized
+                  priority
                   className="object-cover"
                 />
               </div>

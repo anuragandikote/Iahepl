@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type CourseCardProps = {
     title: string;
     image: string;
@@ -5,7 +7,7 @@ type CourseCardProps = {
 
 const CourseCard = ({ title, image }: CourseCardProps) => (
     <div className="rounded-xl cursor-pointer card-with-gradient-border shadow-lg bg-[#dcdedc] overflow-hidden hover:scale-105 transition-transform">
-        <img src={image} alt={title} className="w-full h-52 object-cover" />
+        <Image src={image} alt={title} fill unoptimized priority className="w-full h-52 object-cover" />
         <div className="p-4">
             <h3 className="text-lg font-semibold text-gray-800">{title}</h3>
         </div>

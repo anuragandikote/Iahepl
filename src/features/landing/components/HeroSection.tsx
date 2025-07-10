@@ -8,6 +8,8 @@ const HeroSection = () => (
         src="/images/india-gate-parade.jpg"
         alt="India Gate Parade"
         fill
+        unoptimized
+        priority
         className="object-cover w-full h-full"
       />
     </div>

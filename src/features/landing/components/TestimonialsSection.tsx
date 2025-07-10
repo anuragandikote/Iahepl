@@ -1,3 +1,4 @@
+import Image from "next/image";
 import TestimonialCard from "./TestimonialCard";
 
 const avatarImages = [
@@ -15,9 +16,12 @@ const TestimonialsSection = () => (
 
     <div className="flex flex-wrap justify-center items-center gap-6">
       {avatarImages.map((src, idx) => (
-        <img
+        <Image
           key={idx}
           src={src}
+          fill
+          unoptimized
+          priority
           alt={`Student ${idx + 1}`}
           className="w-32 h-32 rounded-full border-1 shadow-md object-cover"
         />

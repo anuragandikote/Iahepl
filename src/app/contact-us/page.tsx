@@ -54,6 +54,8 @@ export default function ContactPage() {
                         alt="Armed Forces"
                         width={200}
                         height={200}
+                        unoptimized
+                        priority
                         className="mb-6 w-full object-contain h-48 md:h-64 p-2"
                     />
                     <p className="mb-4 text-center text-sm">
@@ -69,6 +71,8 @@ export default function ContactPage() {
                         src={'/photo1.jpg'}
                         alt="Cadets"
                         fill
+                        unoptimized
+                        priority
                         className="rounded-lg shadow-lg mt-6 w-full object-cover h-32 md:h-40"
                     />
                 </div>
