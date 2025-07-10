@@ -78,6 +78,8 @@ export default function Footer() {
               alt="Impact Academy Logo"
               width={100}
               height={40}
+              unoptimized
+              priority
               className="brightness-0 invert"
             />
             <span className="text-sm text-gray-300">

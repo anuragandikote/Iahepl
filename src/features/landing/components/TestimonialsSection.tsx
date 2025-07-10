@@ -21,6 +21,8 @@ const TestimonialsSection = () => (
           src={src}
           unoptimized
           priority
+          width={120}
+          height={120}
           alt={`Student ${idx + 1}`}
           className="w-32 h-32 rounded-full border-1 shadow-md object-cover"
         />
