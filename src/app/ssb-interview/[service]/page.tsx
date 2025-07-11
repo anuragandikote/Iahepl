@@ -59,7 +59,7 @@ export default function SSBServicePage({params}: {params: Params}) {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-[#fffffa] to-[#a68272]">
+        <div className="min-h-screen bg-gradient-to-b from-[#fffffa] to-[#a68272] mt-14">
             {/* Header */}
             <div className="bg-[#fbf9f4] px-6 py-8">
                 <div className="container px-16 mx-auto">

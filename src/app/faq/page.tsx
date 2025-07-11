@@ -1,5 +1,15 @@
 'use client'
 import React, { useState } from 'react'
+import {
+    Accordion,
+    AccordionSummary,
+    AccordionDetails,
+    Typography,
+    Container,
+    Grid,
+    Box,
+} from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const faqs = [
     {
@@ -264,48 +274,70 @@ const Faq = () => {
     };
 
     return (
-        <div className="min-h-screen bg-white py-12 px-4">
-            <h1 className="text-2xl md:text-3xl font-bold text-center text-red-800 mb-10">Frequently Asked Questions</h1>
-            <div className="flex justify-center">
-                <div className="space-y-5 max-w-6xl w-full">
-                    {faqs.map((section, sectionIdx) => (
-                        <div key={section.heading}>
-                            <h2 className="text-xl md:text-3xl font-semibold text-red-800 mb-4">{section.heading}</h2>
-                            {section.content && (
-                                <p className="mb-2 text-gray-700 text-base md:text-lg">{section.content}</p>
-                            )}
-                            <div className="space-y-4">
-                                {section.points.map((point, pointIdx) => (
-                                    <div key={point.heading} className="border rounded-lg shadow-md bg-white">
-                                        <button
-                                            className="cursor-pointer w-full flex justify-between items-center px-6 py-4 text-base md:text-lg font-medium text-left text-gray-800 focus:outline-none"
-                                            onClick={() => toggleFaq(sectionIdx, pointIdx)}
+        <Box sx={{ py: 20, px: 2 }}>
+            <Typography
+                variant="h4"
+                align="center"
+                color="#a68272"
+                fontWeight="bold"
+                gutterBottom
+            >
+                Frequently Asked Questions
+            </Typography>
+
+            <Container maxWidth="md" sx={{ mt: 4 }}>
+                {faqs.map((section, sectionIdx) => (
+                    <Box key={sectionIdx} sx={{ mb: 6 }}>
+                        <Typography
+                            variant="h5"
+                            fontWeight={600}
+                            color="#a68272"
+                            sx={{ mb: 2 }}
+                        >
+                            {section.heading}
+                        </Typography>
+
+                        {section.content && (
+                            <Typography variant="body1" sx={{ mb: 3 }}>
+                                {section.content}
+                            </Typography>
+                        )}
+
+                        <Grid spacing={3}>
+                            {section.points.map((point, pointIdx) => (
+                                <Grid item xs={12} md={5} mb={2} key={pointIdx}>
+                                    <Accordion>
+                                        <AccordionSummary
+                                            expandIcon={<ExpandMoreIcon />}
+                                            aria-controls={`faq-content-${sectionIdx}-${pointIdx}`}
+                                            id={`faq-header-${sectionIdx}-${pointIdx}`}
                                         >
-                                            {point.heading}
-                                            <span className={`transform transition-transform duration-300 ${openIndexes[sectionIdx] === pointIdx ? 'rotate-180' : ''}`}>
-                                                ▼
-                                            </span>
-                                        </button>
-                                        {openIndexes[sectionIdx] === pointIdx && (
-                                            <div className="px-6 pb-4 text-gray-600 animate-fade-in text-base md:text-lg">
-                                                <div>{point.content}</div>
-                                                {point.subpoints && point.subpoints.length > 0 && (
-                                                    <ul className="list-disc pl-5 mt-2">
-                                                        {point.subpoints.map((sub, subIdx) => (
-                                                            <li key={subIdx}>{sub}</li>
-                                                        ))}
-                                                    </ul>
-                                                )}
-                                            </div>
-                                        )}
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </div>
+                                            <Typography fontWeight={600}>
+                                                {point.heading}
+                                            </Typography>
+                                        </AccordionSummary>
+                                        <AccordionDetails>
+                                            <Typography variant="body2" sx={{ mb: point.subpoints?.length ? 1 : 0 }}>
+                                                {point.content}
+                                            </Typography>
+                                            {point.subpoints?.length > 0 && (
+                                                <ul style={{ paddingLeft: "1.2rem", marginTop: 8 }}>
+                                                    {point.subpoints.map((sub, subIdx) => (
+                                                        <li key={subIdx}>
+                                                            <Typography variant="body2">{sub}</Typography>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            )}
+                                        </AccordionDetails>
+                                    </Accordion>
+                                </Grid>
+                            ))}
+                        </Grid>
+                    </Box>
+                ))}
+            </Container>
+        </Box>
     )
 }
 

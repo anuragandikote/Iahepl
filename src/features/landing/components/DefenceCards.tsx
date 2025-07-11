@@ -1,13 +1,13 @@
 import Image from "next/image";
 
-type BenefitCardProps = {
+type DefenceCardProps = {
   title: string;
   image: string;
 };
 
-const BenefitCard = ({ title, image }: BenefitCardProps) => (
+const DefenceCard = ({ title, image }: DefenceCardProps) => (
   <div className="rounded-3xl p-4 flex flex-col shadow-2xl bg-white overflow-hidden min-h-[15rem] md:min-h-[24rem] transition-transform hover:scale-[1.015]">
-    <div className="relative w-full h-48 sm:h-32 md:h-64 mb-4 rounded-xl overflow-hidden">
+    <div className="relative w-full h-48 sm:h-32 md:h-80 mb-4 rounded-xl overflow-hidden">
       <Image
         src={image}
         alt={title}
@@ -18,10 +18,10 @@ const BenefitCard = ({ title, image }: BenefitCardProps) => (
       />
     </div>
     
-    <h3 className="text-lg sm:text-xl font-semibold text-gray-800 text-center px-2">
+    <div className="text-2xl font-medium text-gray-800 text-center px-2">
       {title}
-    </h3>
+    </div>
   </div>
 );
 
-export default BenefitCard;
+export default DefenceCard;

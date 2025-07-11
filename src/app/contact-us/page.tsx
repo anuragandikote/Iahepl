@@ -46,11 +46,11 @@ export default function ContactPage() {
             }}
         >
             <div className="absolute"></div>
-            <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col md:flex-row rounded-xl shadow-2xl overflow-hidden bg-opacity-90">
+            <div className="relative z-10 w-full container px-16 mx-auto flex flex-col md:flex-row rounded-xl shadow-2xl overflow-hidden bg-opacity-90">
                 {/* Left: Images and Info */}
                 <div className="md:w-1/2 w-full flex flex-col justify-center items-center p-6 backdrop-blur text-white">
                     <Image
-                        src="/Impact_logo.png"
+                        src="/images/logo.png"
                         alt="Armed Forces"
                         width={200}
                         height={200}
@@ -67,23 +67,15 @@ export default function ContactPage() {
                         <div>📞 79890 50069, 97004 54572</div>
                         <div>✉️ iahepl.secunderabad@gmail.com</div>
                     </div>
-                    <Image
-                        src={'/photo1.jpg'}
-                        alt="Cadets"
-                        fill
-                        unoptimized
-                        priority
-                        className="rounded-lg shadow-lg mt-6 w-full object-cover h-32 md:h-40"
-                    />
                 </div>
                 {/* Right: Contact Form */}
                 <div className="md:w-1/2 w-full flex flex-col justify-center p-8">
-                    <h1 className="text-3xl font-bold text-white mb-6 text-center">Contact Us</h1>
-                    <p className="mb-6 text-center text-white font-extrabold">
+                    <h1 className="text-3xl font-bold text-black mb-6 text-center">Contact Us</h1>
+                    <p className="mb-6 text-center text-black font-extrabold">
                         Reach out to us for any queries or support. We are here to help you!
                     </p>
                     {submitted ? (
-                        <div className="text-white text-center font-extrabold">
+                        <div className="text-black text-center font-extrabold">
                             Thank you for contacting us! We will get back to you soon.
                         </div>
                     ) : (

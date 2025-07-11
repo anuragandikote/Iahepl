@@ -1,9 +1,7 @@
 import './globals.css';
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import Navigation from '@/components/Navigation'
 import type { Metadata } from 'next'
-import { menuItems } from '@/features/home/data/home-data'
 import { Oswald } from 'next/font/google';
 import FloatingCallNow from '@/components/floating-call-now';
 import DelayedModal from '@/components/deleayedModal';
@@ -26,11 +24,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={oswald.variable}>
       <body className="font-oswald">
         <main className="min-h-screen relative bg-white">
-          <DelayedModal/>
+          <DelayedModal />
           <Header />
-          <div className="sticky top-16 z-50 bg-white shadow-lg">
-            <Navigation menuItems={menuItems} />
-          </div>
           {children}
           <FloatingCallNow />
           <Footer />

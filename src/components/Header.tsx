@@ -1,32 +1,39 @@
+'use client';
+
 import Image from 'next/image';
+import { menuItems } from '@/features/home/data/home-data';
+import { AppBar, Box, Container, Toolbar } from '@mui/material';
+import Navigation from './Navigation';
 
 export default function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-[#2A2C30] shadow-md">
-      <div className="container mx-auto flex items-center justify-between px-4 md:px-16 py-3">
-        <div className="w-40 md:w-48 flex-shrink-0">
-          <Image
-            src="/images/logo.png"
-            alt="Impact Academy Logo"
-            width={200}
-            height={80}
-            priority
-            unoptimized
-          />
-        </div>
+    <AppBar
+      position="fixed"
+      elevation={3}
+      sx={{
+        backgroundColor: 'white',
+        zIndex: (theme) => theme.zIndex.drawer + 1,
+      }}
+    >
+      <Container maxWidth="xl">
+        <Toolbar disableGutters sx={{ justifyContent: 'space-between', px: { xs: 2, md: 4 } }}>
+          {/* Logo */}
+          <Box sx={{ display: 'flex', alignItems: 'center', width: { xs: '120px', md: '180px' }, flexShrink: 0 }}>
+            <Image
+              src="/images/logo.png"
+              alt="Impact Academy Logo"
+              width={200}
+              height={64}
+              priority
+              unoptimized
+              style={{ width: '100%', height: 'auto' }}
+            />
+          </Box>
 
-        <div className="flex items-center gap-2">
-          {/* Placeholder for additional icons or buttons */}
-          <Image
-            fill
-            src="/images/logo.png"
-            alt="Impact Logo"
-            unoptimized
-            priority
-            className="h-6 w-auto hidden"
-          />
-        </div>
-      </div>
-    </header>
+          {/* Navigation */}
+          <Navigation menuItems={menuItems} />
+        </Toolbar>
+      </Container>
+    </AppBar>
   );
 }

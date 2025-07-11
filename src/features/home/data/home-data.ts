@@ -19,20 +19,18 @@ export const carouselContent = [
 
 const appendText = 'Written Coaching'
 export const menuItems = {
-    'HOME': [],
-    'WRITTEN EXAM COACHING': [
+    'Home': [],
+    'Written Exam Coaching': [
         `NDA ${appendText}`, `CDS ${appendText}`, `AFCAT ${appendText}`, `CAPF ${appendText}`
     ],
-    'SSB INTERVIEW': [
+    'SSB Interviews': [
         'SSB Procedure'
     ],
-    /* 'OUR BRANCHES': [
-      'Secunderabad', 'Hyderabad', 'Vizag', 'Bangalore'
-    ], */
-    'GALLERY': [],
-    'FAQ': [],
+    'About Us': [],
+    'Gallery': [],
+    // 'FAQ': [],
     /* 'SSB HELP': [
       'SSB Procedure', 'SSB Experience', 'Success Stories', 'Downloads'
     ], */
-    'CONTACT US': []
+    'Contact Us': []
 }

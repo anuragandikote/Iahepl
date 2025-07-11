@@ -1,166 +1,217 @@
-'use client'
-import React, { useState } from 'react'
-import Link from 'next/link'
+'use client';
+
+import React, { useState } from 'react';
+import {
+  Box,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Collapse,
+  useMediaQuery,
+  Menu,
+  MenuItem,
+  Typography,
+} from '@mui/material';
+import { Menu as MenuIcon, ExpandMore, ExpandLess } from '@mui/icons-material';
+import { useTheme } from '@mui/material/styles';
+import Link from 'next/link';
 
 type MenuItems = {
-    [key: string]: string[]
-}
+  [key: string]: string[];
+};
 
 type NavigationProps = {
-    menuItems: MenuItems
-}
+  menuItems: MenuItems;
+};
+
+const getItemLink = (item: string, subItem?: string) => {
+  const formatUrl = (text: string) => text?.toLowerCase()?.replace(/\s+/g, '-');
+
+  switch (item) {
+    case 'Home':
+      return '/';
+    case 'Gallery':
+      return '/gallery';
+    case 'Contact Us':
+      return '/contact-us';
+    case 'FAQ':
+      return '/faq';
+    case 'Written Exam Coaching':
+      return `/written-exam-coaching/${formatUrl(subItem!)}`;
+    case 'SSB Interviews':
+      return `/ssb-interview/${formatUrl(subItem!)}`;
+    case 'About Us':
+      return '/about-us/';
+    default:
+      return '/';
+  }
+};
 
 export default function Navigation({ menuItems }: NavigationProps) {
-    const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-    const [mobileDropdown, setMobileDropdown] = useState<string | null>(null)
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
-    const getItemLink = (item: string, subItem?: string) => {
-        const formatUrl = (text: string) => text?.toLowerCase()?.replace(/\s+/g, '-')
-        
-        switch(item) {
-            case 'HOME':
-                return '/'
-            case 'GALLERY':
-                return '/gallery'
-            case 'CONTACT US':
-                return '/contact-us'
-            case 'FAQ':
-                return '/faq'
-            case 'WRITTEN EXAM COACHING':
-                return `/written-exam-coaching/${formatUrl(subItem!)}`
-            case 'SSB INTERVIEW':
-                return `/ssb-interview/${formatUrl(subItem!)}`
-            /* case 'OUR BRANCHES':
-                return `/branches/${formatUrl(subItem!)}` */
-            /* case 'SSB HELP':
-                return `/ssb-help/${formatUrl(subItem!)}` */
-            default:
-                return '/'
-        }
-    }
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [expandedItems, setExpandedItems] = useState<{ [key: string]: boolean }>({});
+  const [dropdownAnchor, setDropdownAnchor] = useState<null | HTMLElement>(null);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
-    return (
-        <nav className="bg-[#a68272] text-white relative z-49">
-            <div className="container mx-auto flex justify-between h-10 px-16 md:px-16">
-                {/* Hamburger for mobile */}
-                <button
-                    className="md:hidden flex ml-auto px-2 py-2"
-                    onClick={() => setMobileMenuOpen((prev) => !prev)}
-                    aria-label="Toggle menu"
-                >
-                    <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        {mobileMenuOpen ? (
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                        ) : (
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                        )}
-                    </svg>
-                </button>
-                {/* Desktop Menu */}
-                <ul className="hidden md:flex p-1">
-                    {Object.entries(menuItems).map(([item, dropdownItems]) => (
-                        <li
-                            key={item}
-                            className="relative"
-                            onMouseEnter={() => setActiveDropdown(item)}
-                            onMouseLeave={() => setActiveDropdown(null)}
-                        >
-                            <Link href={getItemLink(item)}>
-                                <div className={`px-4 py-2 cursor-pointer text-xs hover:bg-[#deccb8] hover:text-black hover:rounded-sm flex items-center gap-2 transition-colors duration-100 ease-in-out ${activeDropdown === item ? 'bg-white text-red-800' : ''}`}>
-                                    {item}
-                                    {dropdownItems.length > 0 && (
-                                        <svg
-                                            className="w-4 h-4 transition-transform duration-100 ease-in-out"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth={2}
-                                                d="M19 9l-7 7-7-7"
-                                            />
-                                        </svg>
-                                    )}
-                                </div>
-                            </Link>
-                            {dropdownItems.length > 0 && activeDropdown === item && (
-                                <ul className="absolute top-full left-0 bg-[#deccb8] w-auto shadow-lg z-50 rounded-b-md overflow-hidden">
-                                    {dropdownItems.map((subItem) => (
-                                        <li
-                                            key={subItem}
-                                            className="px-4 py-3 m-1 text-xs text-black rounded-sm hover:bg-[#deccb8] hover:text-black hover:scale-100 hover:font-bold cursor-pointer whitespace-nowrap transition-colors duration-100 ease-in-out"
-                                        >
-                                            <Link
-                                                href={getItemLink(item, subItem)}
-                                                className="block w-full h-full"
-                                            >
-                                                {subItem}
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            )}
-                        </li>
-                    ))}
-                </ul>
-            </div>
-            {/* Mobile Menu */}
-            <div className={`md:hidden transition-all duration-200 ${mobileMenuOpen ? 'block' : 'hidden'}`}>
-                <ul className="flex flex-col bg-red-800 w-full">
-                    {Object.entries(menuItems).map(([item, dropdownItems]) => (
-                        <li key={item} className="relative border-b border-red-800">
-                            <div
-                                className={`flex items-center justify-between px-4 py-3 text-xs cursor-pointer hover:bg-white hover:text-red-800 transition-colors duration-100 ease-in-out ${mobileDropdown === item ? 'bg-white text-red-800' : ''}`}
-                                onClick={() =>
-                                    dropdownItems.length > 0
-                                        ? setMobileDropdown(mobileDropdown === item ? null : item)
-                                        : setMobileMenuOpen(false)
-                                }
+  const toggleDrawer = (open: boolean) => () => {
+    setDrawerOpen(open);
+  };
+
+  const toggleExpand = (item: string) => {
+    setExpandedItems((prev) => ({ ...prev, [item]: !prev[item] }));
+  };
+
+  const shouldNotLink = (item: string) => item === 'Written Exam Coaching' || item === 'SSB Interviews';
+
+  return (
+    <>
+      {isMobile ? (
+        <>
+          <IconButton onClick={toggleDrawer(true)} color="inherit">
+            <MenuIcon />
+          </IconButton>
+
+          <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
+            <Box sx={{ width: 260, p: 2 }}>
+              <List>
+                {Object.entries(menuItems).map(([item, subItems]) => (
+                  <Box key={item}>
+                    <ListItem disablePadding>
+                      <ListItemButton
+                        onClick={() =>
+                          subItems.length > 0
+                            ? toggleExpand(item)
+                            : setDrawerOpen(false)
+                        }
+                      >
+                        <ListItemText>
+                          {shouldNotLink(item) ? (
+                            <span>{item}</span>
+                          ) : (
+                            <Link
+                              href={getItemLink(item)}
+                              style={{ textDecoration: 'none', color: 'inherit' }}
                             >
-                                <Link href={getItemLink(item)} className="flex-1">
-                                    {item}
-                                </Link>
-                                {dropdownItems.length > 0 && (
-                                    <svg
-                                        className={`w-4 h-4 ml-2 transition-transform duration-100 ease-in-out ${mobileDropdown === item ? 'rotate-180' : ''}`}
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M19 9l-7 7-7-7"
-                                        />
-                                    </svg>
-                                )}
-                            </div>
-                            {dropdownItems.length > 0 && mobileDropdown === item && (
-                                <ul className="bg-white">
-                                    {dropdownItems.map((subItem) => (
-                                        <li
-                                            key={subItem}
-                                            className="px-6 py-3 text-xs text-black hover:bg-red-900 hover:text-white cursor-pointer transition-colors duration-100 ease-in-out"
-                                            onClick={() => setMobileMenuOpen(false)}
-                                        >
-                                            <Link
-                                                href={getItemLink(item, subItem)}
-                                                className="block w-full h-full"
-                                            >
-                                                {subItem}
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            )}
-                        </li>
+                              {item}
+                            </Link>
+                          )}
+                        </ListItemText>
+                        {subItems.length > 0 &&
+                          (expandedItems[item] ? <ExpandLess /> : <ExpandMore />)}
+                      </ListItemButton>
+                    </ListItem>
+                    {subItems.length > 0 && (
+                      <Collapse in={expandedItems[item]} timeout="auto" unmountOnExit>
+                        <List component="div" disablePadding>
+                          {subItems.map((subItem) => (
+                            <ListItem key={subItem} disablePadding>
+                              <ListItemButton
+                                sx={{ pl: 4 }}
+                                onClick={() => setDrawerOpen(false)}
+                              >
+                                <ListItemText>
+                                  <Link
+                                    href={getItemLink(item, subItem)}
+                                    style={{ textDecoration: 'none', color: 'inherit' }}
+                                  >
+                                    {subItem}
+                                  </Link>
+                                </ListItemText>
+                              </ListItemButton>
+                            </ListItem>
+                          ))}
+                        </List>
+                      </Collapse>
+                    )}
+                  </Box>
+                ))}
+              </List>
+            </Box>
+          </Drawer>
+        </>
+      ) : (
+        // ✅ Desktop
+        <Box sx={{ display: 'flex', gap: 2 }}>
+          {Object.entries(menuItems).map(([item, subItems]) => {
+            const hasSubmenu = subItems.length > 0;
+
+            return (
+              <Box key={item} sx={{ position: 'relative' }}>
+                <Box
+                  onClick={(e) => {
+                    if (hasSubmenu) {
+                      setDropdownAnchor(e.currentTarget);
+                      setActiveDropdown((prev) => (prev === item ? null : item));
+                    }
+                  }}
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 0.5,
+                    px: 2,
+                    py: 1,
+                    cursor: 'pointer',
+                    fontSize: 14,
+                    fontWeight: 600,
+                    color: '#000000',
+                    '&:hover': {
+                      backgroundColor: '#deccb8',
+                      color: '#000',
+                      borderRadius: 1,
+                    },
+                  }}
+                >
+                  {shouldNotLink(item) ? (
+                    <span>{item}</span>
+                  ) : (
+                    <Link
+                      href={getItemLink(item)}
+                      style={{ textDecoration: 'none', color: 'inherit' }}
+                    >
+                      {item}
+                    </Link>
+                  )}
+
+                  {hasSubmenu &&
+                    (activeDropdown === item ? (
+                      <ExpandLess fontSize="small" />
+                    ) : (
+                      <ExpandMore fontSize="small" />
                     ))}
-                </ul>
-            </div>
-        </nav>
-    )
+                </Box>
+
+                {hasSubmenu && activeDropdown === item && (
+                  <Menu
+                    anchorEl={dropdownAnchor}
+                    open={activeDropdown === item}
+                    onClose={() => setActiveDropdown(null)}
+                    anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+                    transformOrigin={{ vertical: 'top', horizontal: 'left' }}
+                  >
+                    {subItems.map((subItem) => (
+                      <MenuItem
+                        key={subItem}
+                        component={Link}
+                        href={getItemLink(item, subItem)}
+                        onClick={() => setActiveDropdown(null)}
+                        sx={{ fontSize: '0.85rem' }}
+                      >
+                        {subItem}
+                      </MenuItem>
+                    ))}
+                  </Menu>
+                )}
+              </Box>
+            );
+          })}
+        </Box>
+      )}
+    </>
+  );
 }

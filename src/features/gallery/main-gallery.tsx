@@ -90,10 +90,7 @@ const Section: React.FC<SectionProps> = ({ title, images, gridCols }) => (
 
 const MainGallery: React.FC = () => {
     return (
-        <div className="container mx-auto bg-white px-4 my-28">
-            <h1 className="text-4xl font-semibold text-red-900 mb-10 text-center font-oswald">
-                Gallery
-            </h1>
+        <div className="container mx-auto px-16 py-28">
             {galleryData.map((section, idx) => (
                 <Section key={idx} {...section} />
             ))}
