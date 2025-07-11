@@ -6,10 +6,10 @@ import {
     AccordionDetails,
     Typography,
     Container,
-    Grid,
     Box,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { Grid } from '@mui/material';
 
 const faqs = [
     {
@@ -298,42 +298,41 @@ const Faq = () => {
                         </Typography>
 
                         {section.content && (
-                            <Typography variant="body1" sx={{ mb: 3 }}>
+                            <Typography variant="body1" sx={{ mb: 3, color: '#000000' }}>
                                 {section.content}
                             </Typography>
                         )}
 
-                        <Grid spacing={3}>
-                            {section.points.map((point, pointIdx) => (
-                                <Grid item xs={12} md={5} mb={2} key={pointIdx}>
-                                    <Accordion>
-                                        <AccordionSummary
-                                            expandIcon={<ExpandMoreIcon />}
-                                            aria-controls={`faq-content-${sectionIdx}-${pointIdx}`}
-                                            id={`faq-header-${sectionIdx}-${pointIdx}`}
+                        {section.points.map((point, pointIdx) => (
+                            <Box key={pointIdx} sx={{ mb: 2 }}>
+                                <Accordion>
+                                    <AccordionSummary
+                                        expandIcon={<ExpandMoreIcon />}
+                                        aria-controls={`faq-content-${sectionIdx}-${pointIdx}`}
+                                        id={`faq-header-${sectionIdx}-${pointIdx}`}
+                                    >
+                                        <Typography fontWeight={600}>{point.heading}</Typography>
+                                    </AccordionSummary>
+                                    <AccordionDetails>
+                                        <Typography
+                                            variant="body2"
+                                            sx={{ mb: point.subpoints?.length ? 1 : 0 }}
                                         >
-                                            <Typography fontWeight={600}>
-                                                {point.heading}
-                                            </Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                            <Typography variant="body2" sx={{ mb: point.subpoints?.length ? 1 : 0 }}>
-                                                {point.content}
-                                            </Typography>
-                                            {point.subpoints?.length > 0 && (
-                                                <ul style={{ paddingLeft: "1.2rem", marginTop: 8 }}>
-                                                    {point.subpoints.map((sub, subIdx) => (
-                                                        <li key={subIdx}>
-                                                            <Typography variant="body2">{sub}</Typography>
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            )}
-                                        </AccordionDetails>
-                                    </Accordion>
-                                </Grid>
-                            ))}
-                        </Grid>
+                                            {point.content}
+                                        </Typography>
+                                        {point.subpoints?.length > 0 && (
+                                            <Box component="ul" sx={{ pl: 3, mt: 1 }}>
+                                                {point.subpoints.map((sub, subIdx) => (
+                                                    <li key={subIdx}>
+                                                        <Typography variant="body2">{sub}</Typography>
+                                                    </li>
+                                                ))}
+                                            </Box>
+                                        )}
+                                    </AccordionDetails>
+                                </Accordion>
+                            </Box>
+                        ))}
                     </Box>
                 ))}
             </Container>
