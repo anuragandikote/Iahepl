@@ -38,415 +38,196 @@ export type ProgramContent = {
 
 export const programsData: { [key: string]: ProgramContent } = {
     'nda-written-coaching': {
-        title: `NDA/NA`,
+        title: "NDA / NA – Officer Entry Exam after 10+2",
         sections: [
             {
-                heading: "NDA WRITTEN COURSE",
-                subHeading: "What is the NDA Exam? Complete Guide for Aspirants",
+                heading: "NDA Written Course",
+                subHeading: "Complete Guide for Aspirants",
+                content: "Learn everything about joining the NDA – from benefits, career growth, pay, and more."
             },
             {
                 heading: "Introduction",
-                content: "Are you passionate about serving your country? The National Defence Academy (NDA) offers a prestigious path to become a leader in the Indian Armed Forces. This guide will cover everything you need to know about joining the NDA, including career benefits, adventure opportunities, pay, and more.",
-                points: [
-                    {
-                        subHeading: "Description:",
-                        content: "Discover everything about the NDA Exam—conducted by UPSC for Indian Army, Navy, and Air Force. Learn about eligibility, exam pattern, important dates, and preparation tips for male & female candidates."
-                    }
-                ]
+                content: "The NDA offers an exciting opportunity to serve in the Indian Armed Forces. This guide covers eligibility, exam process, training, and preparation tips."
             },
             {
                 heading: "What is the NDA Exam?",
-                content: "The NDA (National Defence Academy) Exam is a prestigious national-level entrance exam conducted by the Union Public Service Commission (UPSC). It recruits young, dynamic individuals for the Indian Army, Navy, and Air Force.",
+                content: "A national-level exam by UPSC to recruit candidates for the Army, Navy, and Air Force.",
+                points: [
+                    { subHeading: "Purpose", content: "Select officers for NDA and INA." },
+                    { subHeading: "Mode", content: "Written test + SSB Interview + Medical exam." },
+                    { subHeading: "Training", content: "3 years at NDA, then training at respective academies." }
+                ]
+            },
+            {
+                heading: "Who Conducts the Exam?",
+                content: "Conducted by UPSC twice a year (NDA I & II).",
+                points: [
+                    { subHeading: "Official Website", content: "www.upsc.gov.in", link: "https://www.upsc.gov.in" }
+                ]
+            },
+            {
+                heading: "Exam Dates",
+                content: "Held twice annually with notifications 4–5 months in advance.",
+                points: [
+                    { subHeading: "NDA I", content: "April" },
+                    { subHeading: "NDA II", content: "September" }
+                ]
+            },
+            {
+                heading: "Eligibility",
+                content: "Eligibility varies slightly for male and female candidates.",
                 points: [
                     {
-                        subHeading: "Purpose:",
-                        content: "To select candidates for admission to the NDA and Indian Naval Academy (INA) for a career as officers in the Armed Forces."
+                        subHeading: "Male Candidates",
+                        points: [
+                            { subHeading: "Age", content: "16.5–19.5 years" },
+                            { subHeading: "Education", content: "12th with PCM for Navy/Air Force, any stream for Army" },
+                            { subHeading: "Marital Status", content: "Unmarried" }
+                        ]
                     },
                     {
-                        subHeading: "Mode:",
-                        content: "Written exam followed by the SSB Interview and medical examination."
+                        subHeading: "Female Candidates",
+                        points: [
+                            { content: "Eligible via NDA Women’s Entry Scheme." },
+                            { subHeading: "Age", content: "16.5–19.5 years" },
+                            { subHeading: "Education", content: "Same as male candidates" }
+                        ]
                     },
                     {
-                        subHeading: "Duration of Training:",
-                        content: "3 years at NDA, Pune, followed by specialized training at respective academies."
+                        content: "Note: Female candidates can apply for Army and Air Force wings."
                     }
                 ]
             },
             {
-                heading: "Who Conducts the NDA Exam?",
-                content: "The NDA Exam is conducted by the Union Public Service Commission (UPSC), which organizes various competitive exams like IAS, IPS, and CDS.",
+                heading: "Exam Pattern",
+                content: "Two papers – Mathematics and General Ability Test.",
                 points: [
                     {
-                        subHeading: "Frequency:",
-                        content: "Twice a year (NDA I and NDA II)"
+                        subHeading: "Mathematics (300 marks)",
+                        points: [
+                            { subHeading: "Topics", content: "Algebra, Calculus, Geometry, Statistics, Trigonometry" },
+                            { subHeading: "Duration", content: "2.5 hours" }
+                        ]
                     },
                     {
-                        subHeading: "Official Website:",
-                        content: "www.upsc.gov.in",
-                        link: "https://www.upsc.gov.in"
+                        subHeading: "General Ability Test (600 marks)",
+                        points: [
+                            { subHeading: "English", content: "Grammar, vocabulary, comprehension" },
+                            { subHeading: "General Knowledge", content: "Physics, Chemistry, History, Geography, etc." },
+                            { subHeading: "Duration", content: "2.5 hours" }
+                        ]
+                    },
+                    { subHeading: "Mode", content: "Offline (pen and paper)" },
+                    { subHeading: "Negative Marking", content: "1/3rd mark deducted for wrong answers" }
+                ]
+            },
+            {
+                heading: "Selection Process",
+                content: "4-stage process for selection.",
+                points: [
+                    { subHeading: "Written Exam", content: "As per the exam pattern above" },
+                    { subHeading: "SSB Interview", content: "Covers psychological and group tasks" },
+                    { subHeading: "Medical Exam", content: "Conducted at military hospitals" },
+                    { subHeading: "Merit List", content: "Based on written, SSB, and medical performance" }
+                ]
+            },
+            {
+                heading: "Training Details",
+                points: [
+                    { subHeading: "Duration", content: "3 years at NDA, Pune" },
+                    {
+                        subHeading: "Post-NDA Academies",
+                        points: [
+                            { subHeading: "Army", content: "Indian Military Academy (IMA)" },
+                            { subHeading: "Navy", content: "Indian Naval Academy (INA)" },
+                            { subHeading: "Air Force", content: "Air Force Academy (AFA)" }
+                        ]
+                    },
+                    { subHeading: "Post-NDA", content: "Advanced training before commissioning" }
+                ]
+            },
+            {
+                heading: "Preparation Tips",
+                points: [
+                    { subHeading: "Master the Basics", content: "Focus on Maths and English fundamentals" },
+                    { subHeading: "Stay Updated", content: "Read newspapers & defence magazines" },
+                    { subHeading: "Mock Tests", content: "Build speed and accuracy" },
+                    { subHeading: "Fitness", content: "Stay physically fit for SSB and medical rounds" }
+                ]
+            },
+            {
+                heading: "Why Join NDA?",
+                points: [
+                    {
+                        subHeading: "Serve the Nation",
+                        content: "Directly contribute to national security"
+                    },
+                    {
+                        subHeading: "Top Education",
+                        content: "Balanced academics and military training"
+                    },
+                    {
+                        subHeading: "Fitness & Discipline",
+                        content: "Develop physical and mental strength"
+                    },
+                    {
+                        subHeading: "Career Growth",
+                        content: "Opportunities in various military roles"
+                    },
+                    {
+                        subHeading: "International Exposure",
+                        content: "Joint exercises and global missions"
+                    },
+                    {
+                        subHeading: "Camaraderie",
+                        content: "Lifelong friendships and teamwork"
+                    },
+                    {
+                        subHeading: "Leadership Skills",
+                        content: "Grow as a confident leader"
+                    },
+                    {
+                        subHeading: "Adventure",
+                        content: "Skydiving, trekking, and more"
+                    },
+                    {
+                        subHeading: "Travel",
+                        content: "Explore India and abroad"
+                    },
+                    {
+                        subHeading: "Attractive Pay",
+                        content: "High salary + allowances + benefits"
                     }
-                ]
-            },
-            {
-                heading: "When is the NDA Exam Held?",
-                content: "The NDA Exam is conducted by the Union Public Service Commission (UPSC), which organizes various competitive exams like IAS, IPS, and CDS.",
-                points: [
-                    {
-                        subHeading: "NDA I:",
-                        content: "Held in April"
-                    },
-                    {
-                        subHeading: "NDA II:",
-                        content: "Held in September",
-                    },
-                    {
-                        subHeading: "Exam Notification:",
-                        content: "Released 4–5 months before the exam date",
-                    }
-                ]
-            },
-            {
-                heading: "Eligibility Criteria for the NDA Exam",
-                content: "The NDA Exam is conducted by the Union Public Service Commission (UPSC), which organizes various competitive exams like IAS, IPS, and CDS.",
-                points: [
-                    {
-                        subHeading: "For Male Candidates:",
-                        content: "",
-                        points: [
-                            {
-                                subHeading: "Age Limit:",
-                                content: "16.5–19.5 years (as of the year of admission)"
-                            },
-                            {
-                                subHeading: "Educational Qualification:",
-                                content: "Must have passed 12th grade with Physics and Mathematics | For the Army wing, candidates from any stream are eligible"
-                            },
-                            {
-                                subHeading: "Marital Status:",
-                                content: "Unmarried"
-                            },
-                        ]
-                    },
-                    {
-                        subHeading: "For Female Candidates:",
-                        content: "Eligibility:",
-                        points: [
-                            {
-                                // subHeading: "Age Limit:",
-                                content: `Female candidates can apply for the NDA I and NDA II exams through the NDA
-                                    (Women’s Entry Scheme), as announced by the government.`
-                            },
-                            {
-                                subHeading: "Age Limit:",
-                                content: "16.5–19.5 years"
-                            },
-                            {
-                                subHeading: "Educational Qualification:",
-                                content: "Same as male candidates"
-                            }
-                        ]
-                    },
-                    {
-                        subHeading: "Note: Female candidates are eligible for both Army and Air Force wings.",
-                    },
-                ]
-            },
-            {
-                heading: "NDA Exam Pattern (Keyword: NDA Exam Pattern)",
-                content: "The exam consists of two papers:",
-                points: [
-                    {
-                        subHeading: "Mathematics (300 marks):",
-                        content: "",
-                        points: [
-                            {
-                                subHeading: "Topics:",
-                                content: "Algebra, Calculus, Geometry, Statistics, Trigonometry"
-                            },
-                            {
-                                subHeading: "Duration:",
-                                content: "2.5 hours"
-                            },
-                        ]
-                    },
-                    {
-                        subHeading: "General Ability Test (600 marks):",
-                        content: "",
-                        points: [
-                            {
-                                subHeading: "English (200 marks):",
-                                content: "Grammar, comprehension, vocabulary"
-                            },
-                            {
-                                subHeading: "General Knowledge (400 marks):",
-                                content: "Physics, Chemistry, General Science, History, Geography, and Current Affairs"
-                            },
-                            {
-                                subHeading: "Duration:",
-                                content: "2.5 hours"
-                            },
-                        ]
-                    },
-                    {
-                        subHeading: "Mode:",
-                        content: "Offline (pen-and-paper)",
-                    },
-                    {
-                        subHeading: "Negative Marking:",
-                        content: "1/3rd mark deducted for incorrect answers",
-                    },
-                ]
-            },
-            {
-                heading: "NDA Selection Process",
-                content: "The exam consists of two papers:",
-                points: [
-                    {
-                        subHeading: "Written Exam:",
-                        content: "Based on the pattern above",
-                    },
-                    {
-                        subHeading: "SSB Interview:",
-                        content: "Conducted for shortlisted candidates (psychological tests, GTO tasks, personal interview)",
-                    },
-                    {
-                        subHeading: "Medical Examination:",
-                        content: "Conducted at military hospitals",
-                    },
-                    {
-                        subHeading: "Merit List:",
-                        content: "Final selection based on written exam, SSB, and medical fitness",
-                    },
-                ]
-            },
-            {
-                heading: "NDA Training Details",
-                content: "The exam consists of two papers:",
-                points: [
-                    {
-                        subHeading: "Duration:",
-                        content: "3 years at NDA, Pune",
-                    },
-                    {
-                        subHeading: "Academies:",
-                        content: "",
-                        points: [
-                            {
-                                subHeading: "Army:",
-                                content: "Indian Military Academy (IMA)"
-                            },
-                            {
-                                subHeading: "Navy:",
-                                content: "Indian Naval Academy (INA)"
-                            },
-                            {
-                                subHeading: "Air Force:",
-                                content: "Air Force Academy (AFA)"
-                            },
-                        ]
-                    },
-                    {
-                        subHeading: "Post-NDA:",
-                        content: "Specialized training at respective academies before joining as commissioned officers",
-                    },
-                ]
-            },
-            {
-                heading: "NDA Exam Preparation Tips",
-                content: "",
-                points: [
-                    {
-                        subHeading: "Master the Basics:",
-                        content: "Strong foundation in Mathematics and English",
-                    },
-                    {
-                        subHeading: "Current Affairs:",
-                        content: "Read newspapers like The Hindu and defence magazines",
-                    },
-                    {
-                        subHeading: "Practice Mock Tests:",
-                        content: "Improve speed and accuracy",
-                    },
-                    {
-                        subHeading: "Physical Fitness:",
-                        content: "Regular exercise for SSB and medical readiness",
-                    },
-                ]
-            },
-            {
-                heading: "Why Should You Join the NDA?",
-                content: "",
-                points: [
-                    {
-                        subHeading: "1. Serve the Nation with Honour",
-                        content: "",
-                        points: [
-                            {
-                                subHeading: "",
-                                content: "Contribute directly to India&#39;s security and global standing."
-                            },
-                            {
-                                subHeading: "",
-                                content: "Be part of an elite group of officers dedicated to national defence."
-                            },
-                        ]
-                    },
-                    {
-                        subHeading: "2. World-Class Education",
-                        content: "",
-                        points: [
-                            {
-                                subHeading: "",
-                                content: "Get a balanced curriculum in academics, leadership, and military training."
-                            },
-                            {
-                                subHeading: "",
-                                content: "Earn a Bachelor’s degree while undergoing training."
-                            },
-                        ]
-                    },
-                    {
-                        subHeading: "3. Physical Fitness and Discipline",
-                        content: "",
-                        points: [
-                            {
-                                subHeading: "",
-                                content: "Transform into a disciplined, physically fit individual."
-                            },
-                            {
-                                subHeading: "",
-                                content: "Training includes rigorous physical activities, leadership exercises, and strategic learning."
-                            },
-                        ]
-                    },
-                    {
-                        subHeading: "4. Rewarding Career Opportunities",
-                        content: "",
-                        points: [
-                            {
-                                subHeading: "",
-                                content: "Serve in the Army, Navy, or Air Force with dynamic roles."
-                            },
-                            {
-                                subHeading: "",
-                                content: "Opportunities in combat, technical, logistics, and strategic planning."
-                            },
-                        ]
-                    },
-                    {
-                        subHeading: "5. International Exposure",
-                        content: "",
-                        points: [
-                            {
-                                subHeading: "",
-                                content: "Participate in joint military exercises with global forces."
-                            },
-                            {
-                                subHeading: "",
-                                content: "Travel opportunities for training missions and peacekeeping operations."
-                            },
-                        ]
-                    },
-                    {
-                        subHeading: "6. Brotherhood and Camaraderie",
-                        content: "",
-                        points: [
-                            {
-                                subHeading: "",
-                                content: "Build lifelong friendships with fellow cadets and officers."
-                            },
-                            {
-                                subHeading: "",
-                                content: "Experience the spirit of teamwork and leadership."
-                            },
-                        ]
-                    },
-                    {
-                        subHeading: "7. Personal Growth and Leadership Development",
-                        content: "",
-                        points: [
-                            {
-                                subHeading: "",
-                                content: "Develop leadership, problem-solving, and decision-making skills."
-                            },
-                            {
-                                subHeading: "",
-                                content: "Grow into a confident, responsible individual ready for any challenge."
-                            },
-                        ]
-                    },
-                    {
-                        subHeading: "8. Adventure and Thrill",
-                        content: "",
-                        points: [
-                            {
-                                subHeading: "",
-                                content: "Engage in exciting activities like skydiving, mountaineering, and trekking."
-                            },
-                            {
-                                subHeading: "",
-                                content: "Live a life filled with adventure, even in routine training."
-                            },
-                        ]
-                    },
-                    {
-                        subHeading: "9. Travel Opportunities",
-                        content: "",
-                        points: [
-                            {
-                                subHeading: "",
-                                content: "Explore diverse regions of India and abroad while serving."
-                            },
-                            {
-                                subHeading: "",
-                                content: "Cultural exposure and personal development through global experiences."
-                            },
-                        ]
-                    },
-                    {
-                        subHeading: "10. Attractive Pay and Perks",
-                        content: "",
-                        points: [
-                            {
-                                subHeading: "",
-                                content: "Competitive salary with various allowances (DA, HRA, risk, etc.)."
-                            },
-                            {
-                                subHeading: "",
-                                content: "Comprehensive medical benefits, pension schemes, and welfare plans for families."
-                            },
-                        ]
-                    },
                 ]
             },
             {
                 heading: "Final Thoughts",
-                content: `The NDA Exam is not just an entrance test; it’s the first step towards a life of honour, adventure, and leadership. Whether you’re male or female, the NDA offers an incredible opportunity to serve your country.`,
-            },
+                content: "NDA is not just an exam—it’s the first step toward an honourable and adventurous career in the Armed Forces."
+            }
         ],
         coachingDetails: {
             coachingFees: [
                 {
-                    title: "NDA/NA coaching fees:",
-                    description: "₹ 26,000/-(Including Material)"
+                    title: "Coaching Fees",
+                    description: "₹26,000 (Includes Study Material)"
                 }
             ],
             coachingDuration: [
                 {
-                    title: "Duration:",
-                    description: "3-4 Months course"
+                    title: "Duration",
+                    description: "3–4 Months"
                 }
             ],
             coachingHostel: [
                 {
-                    title: "Hostel Fees(optional):",
-                    description: "₹ 3500/- (Without Food)"
+                    title: "Hostel (Optional)",
+                    description: "₹3,500 (Without Food)"
                 }
             ]
         }
     },
     'cds-written-coaching': {
-        title: `CDS `,
+        title: `Crack CDS – Join the Elite `,
         sections: [
             {
                 heading: "CDS WRITTEN COURSE",
@@ -752,8 +533,7 @@ export const programsData: { [key: string]: ProgramContent } = {
 
     },
     'afcat-written-coaching': {
-        title: `NDA/NA`,
-
+        title: `AFCAT: Your Wings to the Indian Air Force`,
         sections: [
             {
                 heading: "AFCAT WRITTEN COURSE",
@@ -1051,7 +831,7 @@ export const programsData: { [key: string]: ProgramContent } = {
                 {
                     title: "Duration:",
                     description: "3 Months course"
-                }   
+                }
             ],
             coachingHostel: [
                 {
@@ -1060,10 +840,10 @@ export const programsData: { [key: string]: ProgramContent } = {
                 }
             ]
         }
-        
+
     },
     'capf-written-coaching': {
-        title: `CAPF`,
+        title: `CAPF Preparation – Your Path to Central Armed Police Forces`,
         sections: [
             {
                 heading: "CAPF WRITTEN COURSE",

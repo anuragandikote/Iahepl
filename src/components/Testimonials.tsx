@@ -40,7 +40,7 @@ export default function Testimonials() {
     }
 
     return (
-        <section className="py-16 bg-red-800">
+        <section className="py-16 bg-[#a68272]">
             <div className="max-w-7xl mx-auto px-4">
                 <SectionTitle title="Testimonials" highlightedWord="" textColor="text-white" />
                 <div className="relative">
@@ -55,7 +55,7 @@ export default function Testimonials() {
                                             height="48"
                                             viewBox="0 0 24 24"
                                             fill="none"
-                                            className="text-red-300"
+                                            className="text-white"
                                         >
                                             <path
                                                 d="M10 11.2h-4l2-4H4v12h8v-8zm10 0h-4l2-4h-4v12h8v-8z"
@@ -82,7 +82,7 @@ export default function Testimonials() {
                                                 height="48"
                                                 viewBox="0 0 24 24"
                                                 fill="none"
-                                                className="text-red-300 rotate-180"
+                                                className="text-white rotate-180"
                                             >
                                                 <path
                                                     d="M10 11.2h-4l2-4H4v12h8v-8zm10 0h-4l2-4h-4v12h8v-8z"

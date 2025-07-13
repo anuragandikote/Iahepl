@@ -1,20 +1,58 @@
-'use client';
-export const dynamic = 'force-dynamic';
+"use client";
+export const dynamic = "force-dynamic";
+
+import React, { useState } from "react";
 import Link from "next/link";
-import { use } from 'react';
-import { programsData, type ProgramContent } from "@/data/programsData";
-import { useState } from "react";
-import React from "react";
+import { use } from "react";
+import {
+    Box,
+    Container,
+    Typography,
+} from "@mui/material";
+import { programsData } from "@/data/programsData";
 
 type Params = Promise<{ program: string }>;
 
-export default function ProgramPage({
-    params,
-}: {
-    params: Params;
-}) {
+export interface ProgramSubPoint {
+    subHeading?: string;
+    content: string;
+}
 
-    const program = programsData[use(params).program];
+export interface ProgramPoint {
+    subHeading?: string;
+    content?: string;
+    points?: ProgramSubPoint[];
+}
+
+export interface ProgramSection {
+    heading: string;
+    subHeading?: string;
+    content?: string;
+    points?: ProgramPoint[];
+}
+
+export interface CoachingDetailItem {
+    title: string;
+    description: string;
+}
+
+export interface CoachingDetails {
+    coachingFees: CoachingDetailItem[];
+    coachingDuration: CoachingDetailItem[];
+    coachingHostel: CoachingDetailItem[];
+}
+
+export interface ProgramContent {
+    title: string;
+    sections: ProgramSection[];
+    coachingDetails: CoachingDetails;
+}
+
+const colorPalette = ['#fff0f0', '#f0faff', '#f9f9f0', '#f3f0ff'];
+
+export default function ProgramPage({ params }: { params: Params }) {
+    const { program: programKey } = use(params);
+    const program = programsData[programKey];
     const [activeSection, setActiveSection] = useState<string>('examination');
 
     if (!program) {
@@ -28,134 +66,221 @@ export default function ProgramPage({
                     </Link>
                 </div>
             </div>
-        )
-    }
-
-
-    function renderSection(section: any) {
-        return (
-            <div>
-                {section.heading && (
-                    <h2 className="text-2xl font-bold text-gray-800 mb-4 border-l-4 border-red-800 pl-4">{section.heading}</h2>
-                )}
-                {section.subHeading && (
-                    <h3 className="text-lg font-semibold text-red-800 mb-2">{section.subHeading}</h3>
-                )}
-                {section.content && (
-                    <p className="text-gray-700 mb-2">{section.content}</p>
-                )}
-                {section.points && (
-                    <ul className="text-red-800 list-disc pl-5 space-y-2">
-                        {section.points.map((point: any, idx: number) =>
-                            typeof point === "string" ? (
-                                <li key={idx} className="text-gray-300">{point}</li>
-                            ) : (
-                                <li key={idx}>{renderSection(point)}</li>
-                            )
-                        )}
-                    </ul>
-                )}
-                {section.link && (
-                    <a href={section.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">{section.content}</a>
-                )}
-            </div>
         );
     }
 
     return (
-        <div className='bg-white mt-14'>
-            {/* <ProgramHeader title={program.title} /> */}
-            {/* <div className="px-29 py-2 bg-gray-100 sticky top-[130px] z-30 shadow-md h-12">
-                <nav className="max-w-7xl mx-auto flex justify-center items-center relative">
-                    <div className="pointer-events-none absolute left-0 top-0 h-full w-8 z-50" style={{ background: 'linear-gradient(to right, #f7f3f2 0%, transparent)' }} />
-                    <div className="pointer-events-none absolute right-0 top-0 h-full w-8 z-50" style={{ background: 'linear-gradient(to left, #f7f3f2 0%, transparent)' }} />
-                    <div className="flex overflow-x-auto whitespace-nowrap no-scrollbar relative z-20">
-                        {program.sections?.map((section, idx) => (
-                            section.heading && (
-                                <a
-                                    key={section.heading + idx}
-                                    href={`#section-${idx}`}
-                                    className={`ml-10 text-xs inline-block px-4 py-2 font-bold transition-colors relative group
-                                        ${activeSection === `section-${idx}` ? 'text-red-800' : 'text-gray-600 hover:text-red-800'}`}
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        setActiveSection(`section-${idx}`);
-                                        const element = document.getElementById(`section-${idx}`);
-                                        if (element) {
-                                            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                        }
-                                    }}
-                                >
-                                    {section.heading}
-                                    <span
-                                        className={`absolute bottom-0 left-0 w-full h-0.5 bg-red-800 transform transition-transform
-                                            ${activeSection === `section-${idx}` ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}
-                                    ></span>
-                                </a>
-                            )
-                        ))}
-                    </div>
-                </nav>
-            </div> */}
+        <div className="bg-white mt-14">
+            <Container maxWidth="lg" sx={{ py: 10 }}>
+                {/* Title */}
+                <Typography
+                    fontWeight={800}
+                    textAlign="center"
+                    sx={{
+                        fontSize: {
+                            xs: "1.75rem",
+                            sm: "2.25rem",
+                            md: "2.75rem",
+                        },
+                        mb: 6,
+                        color: "#a68272",
+                    }}
+                >
+                    {program.title}
+                </Typography>
 
-            <div className="container mx-auto px-16 py-8">
-                {program.sections?.map((section, idx) => (
-                    <section
-                        key={idx}
-                        id={`section-${idx}`}
-                        className="mb-16 scroll-mt-32"
-                    >
-                        {renderSection(section)}
-                    </section>
-                ))}
-            </div>
+                {/* Sections */}
+                {program.sections.map((section, sectionIdx) => (
+                    <Box key={sectionIdx} sx={{ mt: 6, pb: 4, borderBottom: "1px solid #eee" }}>
+                        <Typography
+                            variant="h5"
+                            fontWeight={700}
+                            gutterBottom
+                            color="text.primary"
+                        >
+                            {section.heading}
+                        </Typography>
 
-            {/* Examination Section */}
-            <div className="max-w-4xl mx-auto px-4 py-8">
-                {/* Coaching Details */}
-                <section id="coaching" className="mb-16 scroll-mt-32">
-                    <h2 className="text-2xl font-bold text-gray-800 mb-6 border-l-4 border-red-800 pl-4">Coaching Details</h2>
-                    <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-                        {program.coachingDetails ? (
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                {program.coachingDetails.coachingFees?.map((item, idx) => (
-                                    <div key={`fees-${idx}`}>
-                                        <h3 className="font-semibold mb-3 text-black">{item.title}</h3>
-                                        <p className="text-black">{item.description}</p>
-                                    </div>
-                                ))}
-                                {program.coachingDetails.coachingDuration?.map((item, idx) => (
-                                    <div key={`duration-${idx}`}>
-                                        <h3 className="font-semibold mb-3 text-black">{item.title}</h3>
-                                        <p className="text-black">{item.description}</p>
-                                    </div>
-                                ))}
-                                {program.coachingDetails.coachingHostel?.map((item, idx) => (
-                                    <div key={`hostel-${idx}`}>
-                                        <h3 className="font-semibold mb-3 text-black">{item.title}</h3>
-                                        <p className="text-black">{item.description}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        ) : (
-                            <p className="text-gray-600">Coaching details are not available.</p>
+                        {section.subHeading && (
+                            <Typography
+                                variant="subtitle1"
+                                fontWeight={500}
+                                color="text.secondary"
+                                sx={{ mb: 1 }}
+                            >
+                                {section.subHeading}
+                            </Typography>
                         )}
-                    </div>
-                </section>
+
+                        {section.content && (
+                            <Typography sx={{ mb: 3, color: "#555" }}>
+                                {section.content}
+                            </Typography>
+                        )}
+
+                        {section.points?.length > 0 && (
+                            <Box
+                                sx={{
+                                    display: "flex",
+                                    flexWrap: "wrap",
+                                    gap: 3,
+                                    justifyContent: { xs: "center", sm: "flex-start" },
+                                }}
+                            >
+                                {section.points.map((point, pointIdx) => (
+                                    <Box
+                                        key={pointIdx}
+                                        sx={{
+                                            flex: {
+                                                xs: "1 1 100%",
+                                                sm: "1 1 calc(50% - 24px)",
+                                                md: "1 1 calc(33.333% - 24px)",
+                                            },
+                                            maxWidth: {
+                                                xs: "100%",
+                                                sm: "calc(50% - 24px)",
+                                                md: "calc(33.333% - 24px)",
+                                            },
+                                            border: "1px solid #eee",
+                                            p: { xs: 2, sm: 3 },
+                                            mt: 2,
+                                            borderRadius: 3,
+                                            backgroundColor: colorPalette[sectionIdx % colorPalette.length],
+                                            transition: "transform 0.2s",
+                                            "&:hover": {
+                                                transform: "translateY(-4px)",
+                                            },
+                                        }}
+                                    >
+                                        {point?.subHeading && (
+                                            <Typography
+                                                variant="subtitle1"
+                                                fontWeight={700}
+                                                sx={{ mb: 1, color: "#7a4e3b" }}
+                                            >
+                                                {point.subHeading}
+                                            </Typography>
+                                        )}
+
+                                        {point?.content && (
+                                            <Typography variant="body2" sx={{ color: "#444", mb: 1 }}>
+                                                {point.content}
+                                            </Typography>
+                                        )}
+
+                                        {point?.points?.length > 0 && (
+                                            <Box sx={{ mt: 1 }}>
+                                                {point.points.map((sub, subIdx) => (
+                                                    <Box
+                                                        key={subIdx}
+                                                        sx={{
+                                                            mb: 1.2,
+                                                            borderLeft: "3px solid #d19270",
+                                                            pl: 2,
+                                                        }}
+                                                    >
+                                                        {sub.subHeading && (
+                                                            <Typography
+                                                                variant="subtitle2"
+                                                                fontWeight={600}
+                                                                sx={{ color: "#6a4e3b" }}
+                                                            >
+                                                                {sub.subHeading}
+                                                            </Typography>
+                                                        )}
+                                                        <Typography variant="body2" sx={{ color: "#333" }}>
+                                                            {sub.content}
+                                                        </Typography>
+                                                    </Box>
+                                                ))}
+                                            </Box>
+                                        )}
+                                    </Box>
+                                ))}
+                            </Box>
+                        )}
+                    </Box>
+                ))}
+
+                {/* Coaching Details */}
+                <Box sx={{ mt: 10 }}>
+                    <Typography
+                        variant="h5"
+                        fontWeight={700}
+                        gutterBottom
+                        sx={{ color: "#a68272" }}
+                    >
+                        Coaching Details
+                    </Typography>
+
+                    <Box
+                        sx={{
+                            display: "flex",
+                            flexWrap: "wrap",
+                            gap: 3,
+                            mt: 2,
+                        }}
+                    >
+                        {[...(program?.coachingDetails?.coachingFees || []),
+                        ...(program?.coachingDetails?.coachingDuration || []),
+                        ...(program?.coachingDetails?.coachingHostel || [])
+                        ].map((detail, idx) => (
+                            <Box
+                                key={idx}
+                                sx={{
+                                    flex: {
+                                        xs: "1 1 100%",
+                                        sm: "1 1 calc(50% - 24px)",
+                                        md: "1 1 calc(33.333% - 24px)",
+                                    },
+                                    maxWidth: {
+                                        xs: "100%",
+                                        sm: "calc(50% - 24px)",
+                                        md: "calc(33.333% - 24px)",
+                                    },
+                                    border: "1px solid #eee",
+                                    borderRadius: 2,
+                                    p: { xs: 2, sm: 3 },
+                                }}
+                            >
+                                <Typography
+                                    variant="subtitle1"
+                                    fontWeight={600}
+                                    color="#7a4e3b"
+                                >
+                                    {detail.title}
+                                </Typography>
+                                <Typography
+                                    variant="body2"
+                                    color="text.secondary"
+                                >
+                                    {detail.description}
+                                </Typography>
+                            </Box>
+                        ))}
+                    </Box>
+                </Box>
 
                 {/* Contact Section */}
-                <section id="contact" className="mb-16 scroll-mt-32">
-                    <h2 className="text-2xl font-bold text-gray-800 mb-6 border-l-4 border-red-800 pl-4">Contact Us</h2>
-                    <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-                        <p className="text-gray-600 mb-4">Have questions about this program? Reach out to us for more information.</p>
-                        <div className="mt-6">
-                            <button className="bg-red-800 text-white px-8 py-3 rounded-lg hover:bg-red-700 transition-colors duration-300 font-semibold">
-                                Enroll Now
-                            </button>
-                        </div>
-                    </div>
-                </section>
-            </div>
+                <Box id="contact" sx={{ mt: 12 }}>
+                    <Typography
+                        variant="h5"
+                        fontWeight={700}
+                        gutterBottom
+                        sx={{ color: "#a68272", borderLeft: "4px solid #a68272", pl: 1 }}
+                    >
+                        Contact Us
+                    </Typography>
+                    <Box sx={{ mt: 2 }}>
+                        <Typography variant="body1" sx={{ mb: 2, color: 'black' }}>
+                            Have questions about this program? Reach out to us for more information.
+                        </Typography>
+                        <button className="bg-red-800 text-white px-6 py-2 rounded hover:bg-red-700 transition-colors duration-300 font-semibold">
+                            Enroll Now
+                        </button>
+                    </Box>
+                </Box>
+            </Container>
         </div>
-    )
+    );
 }

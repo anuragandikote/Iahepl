@@ -73,8 +73,8 @@ export default function Navigation({ menuItems }: NavigationProps) {
     <>
       {isMobile ? (
         <>
-          <IconButton onClick={toggleDrawer(true)} color="inherit">
-            <MenuIcon />
+          <IconButton onClick={toggleDrawer(true)} sx={{ color: '#a68272' }}>
+            <MenuIcon className='font-bold' />
           </IconButton>
 
           <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>

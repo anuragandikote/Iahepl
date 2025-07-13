@@ -4,7 +4,7 @@ import Footer from '@/components/Footer'
 import type { Metadata } from 'next'
 import { Oswald } from 'next/font/google';
 import FloatingCallNow from '@/components/floating-call-now';
-import DelayedModal from '@/components/deleayedModal';
+import DelayedModal from '@/components/delayedModal';
 
 const oswald = Oswald({
   subsets: ['latin'],
@@ -24,7 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={oswald.variable}>
       <body className="font-oswald">
         <main className="min-h-screen relative bg-white">
-          <DelayedModal />
+          {/* <DelayedModal /> */}
           <Header />
           {children}
           <FloatingCallNow />
