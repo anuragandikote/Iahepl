@@ -90,117 +90,123 @@ export default function ProgramPage({ params }: { params: Params }) {
                 </Typography>
 
                 {/* Sections */}
-                {program.sections.map((section, sectionIdx) => (
-                    <Box key={sectionIdx} sx={{ mt: 6, pb: 4, borderBottom: "1px solid #eee" }}>
-                        <Typography
-                            variant="h5"
-                            fontWeight={700}
-                            gutterBottom
-                            color="text.primary"
-                        >
-                            {section.heading}
-                        </Typography>
+                {program.sections.map((sectionData, sectionIdx) => {
+                    const section = sectionData as ProgramSection; // 👈 Assert the type
 
-                        {section.subHeading && (
-                            <Typography
-                                variant="subtitle1"
-                                fontWeight={500}
-                                color="text.secondary"
-                                sx={{ mb: 1 }}
-                            >
-                                {section.subHeading}
-                            </Typography>
-                        )}
+                    return (
+                        <Box key={sectionIdx} sx={{ mt: 6, pb: 4, borderBottom: "1px solid #eee" }}>
+                            {section.heading && (
+                                <Typography
+                                    variant="h5"
+                                    fontWeight={700}
+                                    gutterBottom
+                                    color="text.primary"
+                                >
+                                    {section.heading}
+                                </Typography>
+                            )}
 
-                        {section.content && (
-                            <Typography sx={{ mb: 3, color: "#555" }}>
-                                {section.content}
-                            </Typography>
-                        )}
+                            {section.subHeading && (
+                                <Typography
+                                    variant="subtitle1"
+                                    fontWeight={500}
+                                    color="text.secondary"
+                                    sx={{ mb: 1 }}
+                                >
+                                    {section.subHeading}
+                                </Typography>
+                            )}
 
-                        {section.points?.length > 0 && (
-                            <Box
-                                sx={{
-                                    display: "flex",
-                                    flexWrap: "wrap",
-                                    gap: 3,
-                                    justifyContent: { xs: "center", sm: "flex-start" },
-                                }}
-                            >
-                                {section.points.map((point, pointIdx) => (
-                                    <Box
-                                        key={pointIdx}
-                                        sx={{
-                                            flex: {
-                                                xs: "1 1 100%",
-                                                sm: "1 1 calc(50% - 24px)",
-                                                md: "1 1 calc(33.333% - 24px)",
-                                            },
-                                            maxWidth: {
-                                                xs: "100%",
-                                                sm: "calc(50% - 24px)",
-                                                md: "calc(33.333% - 24px)",
-                                            },
-                                            border: "1px solid #eee",
-                                            p: { xs: 2, sm: 3 },
-                                            mt: 2,
-                                            borderRadius: 3,
-                                            backgroundColor: colorPalette[sectionIdx % colorPalette.length],
-                                            transition: "transform 0.2s",
-                                            "&:hover": {
-                                                transform: "translateY(-4px)",
-                                            },
-                                        }}
-                                    >
-                                        {point?.subHeading && (
-                                            <Typography
-                                                variant="subtitle1"
-                                                fontWeight={700}
-                                                sx={{ mb: 1, color: "#7a4e3b" }}
-                                            >
-                                                {point.subHeading}
-                                            </Typography>
-                                        )}
+                            {section.content && (
+                                <Typography sx={{ mb: 3, color: "#555" }}>
+                                    {section.content}
+                                </Typography>
+                            )}
 
-                                        {point?.content && (
-                                            <Typography variant="body2" sx={{ color: "#444", mb: 1 }}>
-                                                {point.content}
-                                            </Typography>
-                                        )}
+                            {Array.isArray(section.points) && section.points.length > 0 && (
+                                <Box
+                                    sx={{
+                                        display: "flex",
+                                        flexWrap: "wrap",
+                                        gap: 3,
+                                        justifyContent: { xs: "center", sm: "flex-start" },
+                                    }}
+                                >
+                                    {section.points.map((point, pointIdx) => (
+                                        <Box
+                                            key={pointIdx}
+                                            sx={{
+                                                flex: {
+                                                    xs: "1 1 100%",
+                                                    sm: "1 1 calc(50% - 24px)",
+                                                    md: "1 1 calc(33.333% - 24px)",
+                                                },
+                                                maxWidth: {
+                                                    xs: "100%",
+                                                    sm: "calc(50% - 24px)",
+                                                    md: "calc(33.333% - 24px)",
+                                                },
+                                                border: "1px solid #eee",
+                                                p: { xs: 2, sm: 3 },
+                                                mt: 2,
+                                                borderRadius: 3,
+                                                backgroundColor: colorPalette[sectionIdx % colorPalette.length],
+                                                transition: "transform 0.2s",
+                                                "&:hover": {
+                                                    transform: "translateY(-4px)",
+                                                },
+                                            }}
+                                        >
+                                            {point?.subHeading && (
+                                                <Typography
+                                                    variant="subtitle1"
+                                                    fontWeight={700}
+                                                    sx={{ mb: 1, color: "#7a4e3b" }}
+                                                >
+                                                    {point.subHeading}
+                                                </Typography>
+                                            )}
 
-                                        {point?.points?.length > 0 && (
-                                            <Box sx={{ mt: 1 }}>
-                                                {point.points.map((sub, subIdx) => (
-                                                    <Box
-                                                        key={subIdx}
-                                                        sx={{
-                                                            mb: 1.2,
-                                                            borderLeft: "3px solid #d19270",
-                                                            pl: 2,
-                                                        }}
-                                                    >
-                                                        {sub.subHeading && (
-                                                            <Typography
-                                                                variant="subtitle2"
-                                                                fontWeight={600}
-                                                                sx={{ color: "#6a4e3b" }}
-                                                            >
-                                                                {sub.subHeading}
+                                            {point?.content && (
+                                                <Typography variant="body2" sx={{ color: "#444", mb: 1 }}>
+                                                    {point.content}
+                                                </Typography>
+                                            )}
+
+                                            {Array.isArray(point.points) && point.points.length > 0 && (
+                                                <Box sx={{ mt: 1 }}>
+                                                    {point.points.map((sub, subIdx) => (
+                                                        <Box
+                                                            key={subIdx}
+                                                            sx={{
+                                                                mb: 1.2,
+                                                                borderLeft: "3px solid #d19270",
+                                                                pl: 2,
+                                                            }}
+                                                        >
+                                                            {sub.subHeading && (
+                                                                <Typography
+                                                                    variant="subtitle2"
+                                                                    fontWeight={600}
+                                                                    sx={{ color: "#6a4e3b" }}
+                                                                >
+                                                                    {sub.subHeading}
+                                                                </Typography>
+                                                            )}
+                                                            <Typography variant="body2" sx={{ color: "#333" }}>
+                                                                {sub.content}
                                                             </Typography>
-                                                        )}
-                                                        <Typography variant="body2" sx={{ color: "#333" }}>
-                                                            {sub.content}
-                                                        </Typography>
-                                                    </Box>
-                                                ))}
-                                            </Box>
-                                        )}
-                                    </Box>
-                                ))}
-                            </Box>
-                        )}
-                    </Box>
-                ))}
+                                                        </Box>
+                                                    ))}
+                                                </Box>
+                                            )}
+                                        </Box>
+                                    ))}
+                                </Box>
+                            )}
+                        </Box>
+                    );
+                })}
 
                 {/* Coaching Details */}
                 <Box sx={{ mt: 10 }}>
