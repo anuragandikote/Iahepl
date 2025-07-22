@@ -31,7 +31,7 @@ export default function FloatingCallNow() {
           variant="extended"
           aria-label="Enquire Now"
           sx={{ boxShadow: 'none', paddingX: 4 }}
-          className="!hidden !md:inline-flex !bg-red-800 !text-white hover:!bg-white hover:!text-black font-semibold transition-colors duration-300"
+          className="!hidden !md:inline-flex !bg-[#850d07] !text-white hover:!bg-white hover:!text-black font-semibold transition-colors duration-300"
         >
           <CallIcon className="mr-2" />
           Enquire Now

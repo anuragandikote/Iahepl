@@ -28,21 +28,26 @@ const courses = [
 ];
 
 const CoursesOfferedSection = () => (
-  <section className="py-20 px-6 bg-[#faf8f6]">
+  <section className="py-20 bg-[#870d07]">
     {/* Heading */}
-    <div className="max-w-6xl mx-auto text-center mb-12 px-4">
-      <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 leading-tight">
+    <div className="max-w-6xl mx-auto text-center mb-2 px-4">
+      <h2 className="text-3xl sm:text-4xl font-bold text-white font-oswald tracking-widest">
         Pick Your Mission. Begin Your Journey.
       </h2>
-      <p className="text-gray-600 mt-4 max-w-2xl mx-auto text-base sm:text-lg">
+      <p className="text-white mt-4 mx-auto text-base sm:text-lg font-league-spartan">
         From written exams to physical training and SSB interviews — we prepare you for every step of your defence journey.
       </p>
     </div>
 
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
-      {courses.map((course, index) => (
-        <CourseCard key={index} title={course.title} image={course.image} />
-      ))}
+       <div className="relative">
+      {/* Scrollable Container */}
+      <div className="flex overflow-x-auto space-x-6 px-4 scrollbar-hide py-16">
+        {courses.map((course, index) => (
+          <div key={index} className="flex-shrink-0 w-[300px]">
+            <CourseCard title={course.title} image={course.image} />
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 );

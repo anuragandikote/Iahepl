@@ -8,11 +8,8 @@ const avatarImages = [
 ];
 
 const TestimonialsSection = () => (
-  <section className="py-20 px-6">
-    <h2 className="text-center text-3xl sm:text-4xl font-bold mb-4">Student Testimonials</h2>
-    <p className="text-center text-black mb-12 max-w-xl mx-auto">
-      See how our members have reduced stress and enhanced well-being with our support and guidance.
-    </p>
+  <section className="py-10 px-6">
+    <h2 className="text-center text-3xl sm:text-4xl font-bold mb-4 font-oswald tracking-widest text-[#870e08]">Student Testimonials</h2>
 
     <div className="flex flex-wrap justify-center items-center gap-6">
       {avatarImages.map((src, idx) => (

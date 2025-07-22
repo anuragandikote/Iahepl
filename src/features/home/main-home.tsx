@@ -1,4 +1,3 @@
-import AnnouncementBar from '@/components/AnnouncementBar'
 import { carouselContent } from './data/home-data'
 import HeroCarousel from '@/components/HeroCarousel'
 import VisionMission from '@/components/VisionMission'
@@ -7,17 +6,18 @@ import Testimonials from '@/components/Testimonials'
 import Gallery from '@/components/Gallery'
 import TrainingPrograms from '@/components/TrainingPrograms'
 import AboutUsSection from '@/components/AboutUsSection'
+import LocationOnMap from '@/components/locationOnMap'
 
 const MainAboutUs = () => {
     return (
         <>
-            <AnnouncementBar />
             <HeroCarousel items={carouselContent} />
             <AboutUsSection />
             <VisionMission />
             <UpdatesList />
             <Testimonials />
-            <Gallery />
+            <LocationOnMap />
+            {/* <Gallery /> */}
             <TrainingPrograms />
         </>
     )

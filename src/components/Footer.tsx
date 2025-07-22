@@ -24,14 +24,14 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#a68272] text-white pt-16 pb-6 overflow-hidden border border-x-black">
+    <footer className="bg-[#850d07] text-white pt-16 pb-6 overflow-hidden border border-x-black">
       {/* Content */}
-      <div className="container mx-auto px-6 sm:px-12 lg:px-20">
+      <div className="container mx-auto px-4 md:px-0">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:flex md:justify-between gap-10 mb-10">
           {/* Contact Info */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Contact Us</h3>
-            <ul className="text-sm space-y-2">
+            <h3 className="text-xl font-bold mb-4 font-oswald">Contact Us</h3>
+            <ul className="text-sm space-y-2 font-league-spartan">
               <li className="flex gap-2">
                 <span>📍</span>
                 <span>
@@ -51,7 +51,7 @@ export default function Footer() {
 
           {/* Follow Us */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Follow Us</h3>
+            <h3 className="text-xl font-bold mb-4 font-oswald">Follow Us</h3>
             <div className="flex gap-4">
               {socialLinks.map(({ href, label, iconPath }) => (
                 <Link
@@ -79,7 +79,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/30 pt-6 flex flex-col sm:flex-row justify-between items-center text-sm text-white/80 gap-4">
+        <div className="font-oswald border-t border-white/30 pt-6 flex flex-col sm:flex-row justify-between items-center text-sm text-white/80 gap-4">
           <div className="flex items-center gap-2">
             <Image
               src="/images/logo.png"

@@ -1,8 +1,11 @@
+import GoogleReviews from './googleReviews'
 import SectionTitle from './SectionTitle'
 
 export default function AboutUsSection() {
   return (
     <section className="py-16 bg-gray-50">
+      <GoogleReviews />
+
       <div className="container mx-auto px-4">
         <SectionTitle title="About" highlightedWord="Us" />
         <p className="text-gray-600 text-center">

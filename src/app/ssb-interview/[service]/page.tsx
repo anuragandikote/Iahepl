@@ -1,159 +1,92 @@
-"use client"
-import Link from "next/link";
+"use client";
+
 import { useState, use } from "react";
+import Link from "next/link";
 import { ssbServiceData } from "@/data/ssbServiceData";
 
-type Params = Promise<{ service: string }>;
-
-function renderDaySection(dayData?: any, id?: string) {
-    if (!dayData) return null;
-    return (
-        <div id={id} className="mt-10">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 border-l-4 border-black pl-4">{dayData.title}</h2>
-            <section className="text-black">{dayData.description}</section>
-            {Object.entries(dayData)
-                .filter(([key]) => !['title', 'description'].includes(key))
-                .map(([key, value]: any, idx) => (
-                    value?.title && value?.points ? (
-                        <div key={key}>
-                            <section className="mt-5 text-xl font-bold text-black">{value.title}</section>
-                            <ul className="list-disc pl-5 space-y-3 mt-2">
-                                {value.points.map((item: string, i: number) => (
-                                    <li key={i} className="text-gray-700">{item}</li>
-                                ))}
-                            </ul>
-                        </div>
-                    ) : null
-                ))}
-        </div>
-    );
+interface Params {
+  service: string;
 }
 
-export default function SSBServicePage({params}: {params: Params}) {
+type Section = {
+  title: string;
+  content:
+    | {
+        label: string;
+        text: string | string[];
+      }[];
+};
 
-    const serviceData = ssbServiceData[use(params).service];
-    const [activeTab, setActiveTab] = useState('process');
+export default function SSBServicePage({ params }: { params: Promise<Params> }) {
+  const { service } = use(params);
 
-    const scrollToSection = (tab: string) => {
-        setActiveTab(tab);
-        const element = document.getElementById(tab.toLowerCase().replace(' ', '-'));
-        if (element) {
-            setTimeout(() => {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }, 100);
-        }
-    };
+  if (!(service in ssbServiceData)) return <div>Invalid service</div>;
 
-    if (!serviceData) {
-        return (
-            <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-                <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full text-center">
-                    <h1 className="text-3xl font-bold text-red-900 mb-4">Service Not Found</h1>
-                    <p className="text-gray-600 mb-6">The requested SSB service does not exist.</p>
-                    <Link href="/ssb-interview" className="text-red-900 hover:text-red-800">
-                        Back to SSB Services
-                    </Link>
-                </div>
-            </div>
-        );
-    }
+  const serviceKey = service as keyof typeof ssbServiceData;
+  const serviceData = ssbServiceData[serviceKey];
 
-    return (
-        <div className="min-h-screen bg-gradient-to-b from-[#fffffa] to-[#a68272] mt-14">
-            {/* Header */}
-            <div className="bg-[#fbf9f4] px-6 py-8">
-                <div className="container px-16 mx-auto">
-                    <div className="py-2">
-                        <h1 className="text-sm flex items-center gap-2">
-                            <Link href="/" className="text-red-800 hover:text-red-700">Home</Link>
-                            <span className="text-white">›</span>
-                            <Link href="/ssb-interview" className="text-red-800 hover:text-red-700">SSB Interview</Link>
-                            <span className="text-white">›</span>
-                            <span className="text-gray-400">{serviceData.title}</span>
-                        </h1>
-                    </div>
-                    <h1 className="text-3xl text-black mt-4">{serviceData.title}</h1>
-                    <div className="h-[5px] bg-black mt-2 w-80"></div>
-                </div>
-            </div>
-
-            {/* Navigation Tabs */}
-            {/* <div className="bg-gray-100 sticky top-10 z-20 shadow-md">
-                <div className="max-w-6xl mx-auto px-4">
-                    <nav className="flex justify-center align-middle overflow-x-auto py-4">
-                        {['What is SSB', 'DAY 1', 'DAY 2', 'DAY 3', 'DAY 4', 'DAY 5'].map((tab) => (
-                            <a
-                                key={tab}
-                                href={`#${tab.toLowerCase().replace(' ', '-')}`}
-                                className={`cursor-pointer px-4 py-2 font-medium whitespace-nowrap mx-2 first:ml-0 transition-colors relative
-                                    ${activeTab === tab ? 'text-red-800' : 'text-gray-600 hover:text-red-800'}`}
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    setActiveTab(tab);
-                                    const element = document.getElementById(tab.toLowerCase().replace(' ', '-'));
-                                    if (element) {
-                                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                    }
-                                }}
-                            >
-                                {tab.charAt(0).toUpperCase() + tab.slice(1)}
-                                <span
-                                    className={`absolute bottom-0 left-0 w-full h-0.5 bg-red-800 transform transition-transform
-                                        ${activeTab === tab ? 'scale-x-100' : 'scale-x-0'}`}
-                                ></span>
-                            </a>
-                        ))}
-                    </nav>
-                </div>
-            </div> */}
-
-            {/* Main Content */}
-            <div className="container mx-auto px-16 py-8">
-                {/* Description */}
-                <div id="what-is-ssb">
-                    <h2 className="text-2xl font-bold text-gray-800 mb-6 border-l-4 border-black pl-4">What is SSB?</h2>
-                    <div className="mb-10">
-                        <p className="text-lg text-gray-700 leading-relaxed">{serviceData.description}</p>
-                    </div>
-                </div>
-
-                {/* Day Tabs */}
-                {renderDaySection(serviceData.day1, 'day-1')}
-                {renderDaySection(serviceData.day2, 'day-2')}
-                {renderDaySection(serviceData.day3, 'day-3')}
-                {renderDaySection(serviceData.day4, 'day-4')}
-                {renderDaySection(serviceData.day5, 'day-5')}
-
-                {/* Preparation Tab */}
-                {activeTab === 'preparation' && (
-                    <div>
-                        <h2 className="text-2xl font-bold text-gray-800 mb-6 border-l-4 border-black pl-4">Preparation Focus Areas</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            {serviceData.preparation.map((item: string, index: number) => (
-                                <div key={index} className="bg-gray-50 p-5 rounded-lg shadow-sm flex items-start">
-                                    <div className="text-black mr-3 mt-1">•</div>
-                                    <p className="text-gray-700">{item}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                )}
-
-                {/* Features Tab */}
-                {activeTab === 'features' && (
-                    <div>
-                        <h2 className="text-2xl font-bold text-gray-800 mb-6 border-l-4 border-black pl-4">Program Features</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            {serviceData.features.map((feature: string, index: number) => (
-                                <div key={index} className="bg-gray-50 p-5 rounded-lg shadow-sm flex items-start">
-                                    <div className="text-black mr-3 mt-1">✓</div>
-                                    <p className="text-gray-700">{feature}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                )}
-            </div>
+  return (
+    <div className="min-h-screen mt-14">
+      {/* Header */}
+      <header className="px-4 md:px-6 py-8">
+        <div className="container mx-auto">
+          <h1 className="text-2xl md:text-4xl font-semibold tracking-wide font-oswald text-[#870e08] mt-4">
+            {serviceData.title}
+          </h1>
         </div>
-    );
+      </header>
+
+      {/* What is SSB */}
+      <main className="container mx-auto px-4 py-10">
+        <section
+          id="what-is-ssb"
+          className="relative bg-gradient-to-br from-[#fdfcfb] to-[#e2d1c3] py-12 px-6 md:px-20 rounded-2xl shadow-lg overflow-hidden"
+        >
+          <div className="absolute -top-6 -left-6 w-32 h-32 bg-yellow-100 rounded-full blur-3xl opacity-50 z-0" />
+          <div className="relative z-10 mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight font-oswald mb-6">
+              What is SSB?
+            </h2>
+            <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-light">
+              {serviceData.description}
+            </p>
+          </div>
+        </section>
+
+        {/* Render Sections from serviceData.sections */}
+        {serviceData.sections?.map((section, sectionIdx) => (
+          <section
+            key={sectionIdx}
+            className="mt-16 bg-white rounded-xl p-6 md:p-10 shadow-md"
+          >
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 font-oswald border-l-4 border-black pl-4 mb-6">
+              {section.title}
+            </h2>
+
+            {section.content.map((item, i) => (
+              <div key={i} className="mb-6">
+                {item?.label && (
+                  <h3 className="text-xl font-semibold text-black mb-2">
+                    {item?.label}
+                  </h3>
+                )}
+
+                {Array.isArray(item?.text) ? (
+                  <ul className="list-disc pl-5 space-y-2">
+                    {item?.text?.map((point: any, idx: number) => (
+                      <li key={idx} className="text-gray-700">
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-gray-700">{item.text}</p>
+                )}
+              </div>
+            ))}
+          </section>
+        ))}
+      </main>
+    </div>
+  );
 }

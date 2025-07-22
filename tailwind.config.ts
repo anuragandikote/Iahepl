@@ -1,11 +1,16 @@
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
-  content: ["./src/**/*.{js,ts,jsx,tsx}", './app/**/*.{js,ts,jsx,tsx}',],
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {
       fontFamily: {
-        oswald: ['var(--font-oswald)', 'sans-serif'],
+        oswald: ["var(--font-oswald)"],
+        leagueSpartan: ["var(--font-league-spartan)"],
       },
       colors: {
         red: {

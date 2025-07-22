@@ -40,7 +40,7 @@ export default function Testimonials() {
     }
 
     return (
-        <section className="py-16 bg-[#a68272]">
+        <section className="py-16 bg-[#870d07]">
             <div className="max-w-7xl mx-auto px-4">
                 <SectionTitle title="Testimonials" highlightedWord="" textColor="text-white" />
                 <div className="relative">

@@ -5,7 +5,7 @@ import CoursesOfferedSection from "./components/coursesOffered";
 
 export default function LeadCapturePage() {
   return (
-    <div className="bg-gradient-to-b from-[#fffffa] to-[#a68272] font-sans text-gray-800 py-32">
+    <div className="py-32">
       <HeroSection />
       <DefenceSection />
       <CoursesOfferedSection/>
@@ -13,3 +13,5 @@ export default function LeadCapturePage() {
     </div>
   );
 }
+
+// bg-gradient-to-b from-[#fffffa] to-[#a68272]

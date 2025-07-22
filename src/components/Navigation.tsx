@@ -161,8 +161,8 @@ export default function Navigation({ menuItems }: NavigationProps) {
                     fontWeight: 600,
                     color: '#000000',
                     '&:hover': {
-                      backgroundColor: '#deccb8',
-                      color: '#000',
+                      backgroundColor: '#870d07',
+                      color: '#fff',
                       borderRadius: 1,
                     },
                   }}

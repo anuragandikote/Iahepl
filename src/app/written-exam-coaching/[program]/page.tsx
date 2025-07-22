@@ -53,7 +53,6 @@ const colorPalette = ['#fff0f0', '#f0faff', '#f9f9f0', '#f3f0ff'];
 export default function ProgramPage({ params }: { params: Params }) {
     const { program: programKey } = use(params);
     const program = programsData[programKey];
-    const [activeSection, setActiveSection] = useState<string>('examination');
 
     if (!program) {
         return (
@@ -76,6 +75,7 @@ export default function ProgramPage({ params }: { params: Params }) {
                 <Typography
                     fontWeight={800}
                     textAlign="center"
+                    className="tracking-widest"
                     sx={{
                         fontSize: {
                             xs: "1.75rem",
@@ -83,7 +83,7 @@ export default function ProgramPage({ params }: { params: Params }) {
                             md: "2.75rem",
                         },
                         mb: 6,
-                        color: "#a68272",
+                        color: "#870e08",
                     }}
                 >
                     {program.title}
