@@ -65,9 +65,9 @@ export default function SSBServicePage({ params }: { params: Promise<Params> }) 
 
             {section.content.map((item, i) => (
               <div key={i} className="mb-6">
-                {item?.label && (
+                {"label" in item && item.label && (
                   <h3 className="text-xl font-semibold text-black mb-2">
-                    {item?.label}
+                    {item.label}
                   </h3>
                 )}
 
