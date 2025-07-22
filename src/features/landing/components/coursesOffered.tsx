@@ -44,7 +44,7 @@ const CoursesOfferedSection = () => (
       <div className="flex overflow-x-auto space-x-6 px-4 scrollbar-hide py-16">
         {courses.map((course, index) => (
           <div key={index} className="flex-shrink-0 w-[300px]">
-            <CourseCard title={course.title} image={course.image} />
+            <CourseCard title={course.title}/>
           </div>
         ))}
       </div>
