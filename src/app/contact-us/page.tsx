@@ -63,7 +63,7 @@ export default function ContactPage() {
                         Join us for NDA, CDS, AFCAT, SSB and more!
                     </p>
                     <div className="space-y-2 text-center text-sm">
-                        <div>📍 #505/1/2, 2nd Floor, Beside Karishma Police Station, Karkhana, Secunderabad, 500015(Telangana)</div>
+                        <div>📍 59/1/2, 2nd floor , beside Karkhana traffic police station , karkhana , Secunderabad-500009</div>
                         <div>📞 79890 50069, 97004 54572</div>
                         <div>✉️ iahepl.secunderabad@gmail.com</div>
                     </div>

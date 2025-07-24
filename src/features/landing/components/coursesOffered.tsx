@@ -18,11 +18,11 @@ const courses = [
     image: "/images/air-force.jpeg",
   },
   {
-    title: "Territorial Army (TA)",
+    title: "CAPF - Central Armed Police Forces",
     image: "/images/cds.jpeg",
   },
   {
-    title: "Agniveer Entry Scheme",
+    title: "Career Counselling",
     image: "/images/nda.jpeg",
   },
 ];

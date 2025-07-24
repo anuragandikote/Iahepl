@@ -35,7 +35,7 @@ export default function Footer() {
               <li className="flex gap-2">
                 <span>📍</span>
                 <span>
-                  #505/1/2, 2nd Floor, Beside Karkhana Police Station, Secunderabad, Telangana - 500015
+                  59/1/2, 2nd floor , beside Karkhana traffic police station , karkhana , Secunderabad-500009
                 </span>
               </li>
               <li className="flex gap-2">

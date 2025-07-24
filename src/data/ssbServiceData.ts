@@ -134,23 +134,19 @@ conducted by senior defence officers...`,
                 content: [
                     {
                         label: '1. Written Exam Shortlisting:',
-                        text: 'Candidates who pass the written exam (CDS/AFCAT/NDA/NA) and are called for the SSB interview.'
+                        text: ['Candidates who pass the written exam (CDS/AFCAT/NDA/NA) and are called for the SSB interview.']
                     },
                     {
-                        label: '2. Direct Entry for SSB Interview',
-                        text: ''
+                        label: '2. Direct Entry Schemes:',
+                        text: ['Candidates can apply for the SSB Interview through direct entry schemes like TES10+2 (Army, Navy), TGC, SSC(T) Male & Female (Army/Navy), NCC special entry , UES entry']
                     },
                     {
-                        label: '3. Direct Entry Schemes:',
-                        text: `Candidates can apply for the SSB Interview through direct entry schemes like TES10+2 (Army, Navy)...`
+                        label: '3. Reporting:',
+                        text: ['If reporting at 2:00 PM, test starts the next day' ,' If reporting at 6:00 AM, test starts the same day.']
                     },
                     {
-                        label: '4. Reporting:',
-                        text: `• If reporting at 2:00 PM, testing starts the next day\n• If reporting at 6:00 AM...`
-                    },
-                    {
-                        label: '5. Reporting Venue:',
-                        text: 'As per the call letter, often at the Moment Control Office (MCO)'
+                        label: '4. Reporting Venue:',
+                        text: ['As per the call letter, often at the Moment Control Office (MCO)']
                     }
                 ]
             },
@@ -161,15 +157,15 @@ conducted by senior defence officers...`,
                         label: "1. Officer's Intelligence Rating (OIR) Test",
                         text: [
                             'A logical and analytical aptitude test.',
-                            'Candidates are scored based on the number of correct answers...',
+                            'Candidates are scored based on the number of correct answers.',
                             'A higher rating increases chances of progressing.'
                         ]
                     },
                     {
                         label: '2. Picture Perception and Discussion Test (PPDT)',
                         text: [
-                            'Picture Perception: View a picture for 30 seconds...',
-                            'Story Writing: Write a story based on perception.',
+                            'Picture Perception: View a picture for 30 seconds.',
+                            'Story Writing: 4-min to write a story based on perception.',
                             'Group Discussion: Narrate and discuss as a group.'
                         ]
                     },
@@ -188,15 +184,15 @@ conducted by senior defence officers...`,
                 content: [
                     {
                         label: '1. Thematic Appreciation Test (TAT)',
-                        text: ['Write 12 stories based on shown pictures.']
+                        text: ['Write 11 stories based on shown pictures.', '12th picture will be blank, student has to imagine his/her own picture and write the story']
                     },
                     {
                         label: '2. Word Association Test (WAT)',
-                        text: ['60 words shown for 15 seconds each.']
+                        text: ['60 words shown for 15 seconds each. Student has to write a sentence for each word.']
                     },
                     {
                         label: '3. Situation Reaction Test (SRT)',
-                        text: ['60 hypothetical situations in 30 minutes.']
+                        text: ['60 hypothetical situations in 30 seconds each. student has to write a reaction for each situation.']
                     },
                     {
                         label: 'Note',

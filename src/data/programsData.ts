@@ -53,9 +53,9 @@ export const programsData: { [key: string]: ProgramContent } = {
                 heading: "What is the NDA Exam?",
                 content: "A national-level exam by UPSC to recruit candidates for the Army, Navy, and Air Force.",
                 points: [
-                    { subHeading: "Purpose", content: "Select officers for NDA and INA." },
-                    { subHeading: "Mode", content: "Written test + SSB Interview + Medical exam." },
-                    { subHeading: "Training", content: "3 years at NDA, then training at respective academies." }
+                    { subHeading: "Purpose", content: "The National Defence Academy (NDA) is India’s premier joint services academy where candidates are trained to become officers in the Army, Navy, and Air Force at young age" },
+                    { subHeading: "Steps", content: "Written test + SSB Interview + Medical exam + All India Merit List" },
+                    { subHeading: "Training", content: "3 years at NDA, then training at respective academies (IMA/AFA/INA)" }
                 ]
             },
             {
@@ -75,22 +75,23 @@ export const programsData: { [key: string]: ProgramContent } = {
             },
             {
                 heading: "Eligibility",
-                content: "Eligibility varies slightly for male and female candidates.",
+                content: "Eligibility is same for male and female candidates.",
                 points: [
                     {
                         subHeading: "Male Candidates",
                         points: [
                             { subHeading: "Age", content: "16.5–19.5 years" },
-                            { subHeading: "Education", content: "12th with PCM for Navy/Air Force, any stream for Army" },
+                            { subHeading: "Education", content: "10+2 with any stream for Army/Navy/Air Force" },
+                            {subHeading: '', content: 'Flying branch / Technical entry PCM is mandatory'},
                             { subHeading: "Marital Status", content: "Unmarried" }
                         ]
                     },
                     {
                         subHeading: "Female Candidates",
                         points: [
-                            { content: "Eligible via NDA Women’s Entry Scheme." },
                             { subHeading: "Age", content: "16.5–19.5 years" },
-                            { subHeading: "Education", content: "Same as male candidates" }
+                            { subHeading: "Education", content: "10+2 with any stream for Army/Navy/Air Force" },
+                            {subHeading: '', content: 'Flying branch / Technical entry PCM is mandatory'},                            { subHeading: "Marital Status", content: "Unmarried" }
                         ]
                     },
                     {
@@ -105,7 +106,7 @@ export const programsData: { [key: string]: ProgramContent } = {
                     {
                         subHeading: "Mathematics (300 marks)",
                         points: [
-                            { subHeading: "Topics", content: "Algebra, Calculus, Geometry, Statistics, Trigonometry" },
+                            { subHeading: "Topics", content: "Algebra, Calculus, Geometry, Statistics, Trigonometry, etc..." },
                             { subHeading: "Duration", content: "2.5 hours" }
                         ]
                     },
@@ -126,30 +127,30 @@ export const programsData: { [key: string]: ProgramContent } = {
                 content: "4-stage process for selection.",
                 points: [
                     { subHeading: "Written Exam", content: "As per the exam pattern above" },
-                    { subHeading: "SSB Interview", content: "Covers psychological and group tasks" },
-                    { subHeading: "Medical Exam", content: "Conducted at military hospitals" },
+                    { subHeading: "SSB Interview", content: "Navigate to SSB Interview screen for detailed info"},
+                    { subHeading: "Medical Exam", content: "Conducted at Military hospitals" },
                     { subHeading: "Merit List", content: "Based on written, SSB, and medical performance" }
                 ]
             },
             {
                 heading: "Training Details",
                 points: [
-                    { subHeading: "Duration", content: "3 years at NDA, Pune" },
+                    { subHeading: "Duration", content: "3 years at NDA - Khadakwasla,Pune" },
                     {
                         subHeading: "Post-NDA Academies",
+                        content: 'Advanced training before commissioning',
                         points: [
                             { subHeading: "Army", content: "Indian Military Academy (IMA)" },
                             { subHeading: "Navy", content: "Indian Naval Academy (INA)" },
                             { subHeading: "Air Force", content: "Air Force Academy (AFA)" }
                         ]
-                    },
-                    { subHeading: "Post-NDA", content: "Advanced training before commissioning" }
+                    }
                 ]
             },
             {
                 heading: "Preparation Tips",
                 points: [
-                    { subHeading: "Master the Basics", content: "Focus on Maths and English fundamentals" },
+                    { subHeading: "Master the Basics", content: "Focus on Maths, English fundamentals & NCERT books" },
                     { subHeading: "Stay Updated", content: "Read newspapers & defence magazines" },
                     { subHeading: "Mock Tests", content: "Build speed and accuracy" },
                     { subHeading: "Fitness", content: "Stay physically fit for SSB and medical rounds" }
@@ -221,9 +222,9 @@ export const programsData: { [key: string]: ProgramContent } = {
             coachingHostel: [
                 {
                     title: "Hostel (Optional)",
-                    description: "₹3,500 (Without Food)"
+                    description: "₹4,000 (Without Food)"
                 }
-            ]
+            ],
         }
     },
     'cds-written-coaching': {
@@ -250,7 +251,7 @@ export const programsData: { [key: string]: ProgramContent } = {
                     },
                     {
                         subHeading: "Mode:",
-                        content: "Written exam followed by SSB Interview and medical examination."
+                        content: "Written exam followed by SSB Interview, medical examination & All India Rank"
                     },
                     {
                         subHeading: "Entry Types:",
@@ -270,7 +271,7 @@ export const programsData: { [key: string]: ProgramContent } = {
                     },
                     {
                         subHeading: "Official Website:",
-                        content: "for notifications and updates",
+                        content: "for notifications and updates - https://www.upsc.gov.in",
                         link: "https://www.upsc.gov.in"
                     },
                 ]
@@ -307,14 +308,8 @@ export const programsData: { [key: string]: ProgramContent } = {
                         points: [
                             {
                                 subHeading: "IMA (Indian Military Academy):",
-                                content: "19–24 years"
+                                content: "19–23 years"
                             },
-                        ]
-                    },
-                    {
-                        subHeading: "",
-                        content: "OTA (Officers Training Academy):",
-                        points: [
                             {
                                 subHeading: "INA (Indian Naval Academy):",
                                 content: "19–24 years"
@@ -326,8 +321,18 @@ export const programsData: { [key: string]: ProgramContent } = {
                         ]
                     },
                     {
-                        subHeading: "Educational Qualification:",
-                        content: "",
+                        subHeading: "",
+                        content: "OTA (Officers Training Academy):",
+                        points: [
+                            {
+                                subHeading: "",
+                                content: "19–25 years"
+                            },
+                        ]
+                    },
+                    {
+                        subHeading: "",
+                        content: "Educational Qualification:",
                         points: [
                             {
                                 subHeading: "IMA & INA:",
@@ -379,7 +384,7 @@ export const programsData: { [key: string]: ProgramContent } = {
                 points: [
                     {
                         subHeading: "",
-                        content: "OTA (Officers Training Academy):",
+                        content: "IMA (Indian Military Academy):",
                         points: [
                             {
                                 subHeading: "English (100 marks)",
@@ -393,6 +398,20 @@ export const programsData: { [key: string]: ProgramContent } = {
                                 subHeading: "Elementary Mathematics (100 marks)",
                                 content: "Arithmetic, algebra, geometry, etc."
                             },
+                        ]
+                    },
+                    {
+                        subHeading: "",
+                        content: "OTA (Officers Training Academy):",
+                        points: [
+                            {
+                                subHeading: "English (100 marks)",
+                                content: "Objective type, tests grammar and vocabulary"
+                            },
+                            {
+                                subHeading: "General Knowledge (100 marks)",
+                                content: "Includes current affairs, history, geography, etc."
+                            }
                         ]
                     },
                     {
@@ -429,7 +448,7 @@ export const programsData: { [key: string]: ProgramContent } = {
                             },
                             {
                                 subHeading: "SSB Interview:",
-                                content: "For shortlisted candidates (psychological tests, GTO tasks, personal interview)"
+                                content: "For shortlisted candidates (stage-I, psychological tests, GTO tasks, personal interview)"
                             },
                             {
                                 subHeading: "Medical Examination:",
@@ -526,7 +545,7 @@ export const programsData: { [key: string]: ProgramContent } = {
             coachingHostel: [
                 {
                     title: "Hostel Fees(optional):",
-                    description: "₹ 3500/- (Without Food)"
+                    description: "₹ 4,000/- (Without Food)"
                 }
             ]
         }
@@ -558,7 +577,7 @@ export const programsData: { [key: string]: ProgramContent } = {
                     },
                     {
                         subHeading: "Mode:",
-                        content: "Written exam followed by the SSB Interview and medical examination."
+                        content: "Written exam followed by the SSB Interview, medical examination & All India Rank"
                     },
                     {
                         subHeading: "Entry Types:",
@@ -577,7 +596,7 @@ export const programsData: { [key: string]: ProgramContent } = {
                     },
                     {
                         subHeading: "Official Website:",
-                        content: "indianairforce.nic.in for notifications and updates"
+                        content: "https://afcat.cdac.in - for notifications and updates"
                     },
                 ]
             },
@@ -595,7 +614,7 @@ export const programsData: { [key: string]: ProgramContent } = {
                     },
                     {
                         subHeading: "Exam Notification:",
-                        content: "Released 4–5 months before the exam date"
+                        content: "Released 2-3 months before the exam date"
                     },
                 ]
             },
@@ -679,28 +698,7 @@ export const programsData: { [key: string]: ProgramContent } = {
                 heading: "AFCAT Exam Pattern",
                 content: `The exam consists of four sections:`,
                 points: [
-                    {
-                        subHeading: "",
-                        content: "",
-                        points: [
-                            {
-                                subHeading: "General Awareness (25 marks):",
-                                content: "History, Geography, Current Affairs, Defence, etc."
-                            },
-                            {
-                                subHeading: "Verbal Ability in English (25 marks):",
-                                content: "Vocabulary, Grammar, Comprehension"
-                            },
-                            {
-                                subHeading: "Numerical Ability (25 marks):",
-                                content: "Arithmetic, Algebra, Data Interpretation"
-                            },
-                            {
-                                subHeading: "Reasoning and Military Aptitude (25 marks):",
-                                content: "Logical reasoning, Spatial ability, Problem-solving"
-                            },
-                        ]
-                    },
+                    
                     {
                         subHeading: "Total Marks:",
                         content: `300`,
@@ -716,6 +714,36 @@ export const programsData: { [key: string]: ProgramContent } = {
                     {
                         subHeading: "Negative Marking:",
                         content: "1/3rd mark deducted for incorrect answers",
+                    },
+                    {
+                        subHeading: "",
+                        content: "",
+                        points: [
+                            {
+                                subHeading: "General Awareness (20Q's - 60 marks):",
+                                content: "History, Geography, Current Affairs, Defence, etc."
+                            },
+                            {
+                                subHeading: "Verbal Ability in English (30Q's - 90 marks):",
+                                content: "Vocabulary, Grammar, Comprehension"
+                            },
+                            {
+                                subHeading: "Numerical Ability (15Q's - 45 marks):",
+                                content: "Arithmetic, Algebra, Data Interpretation"
+                            },
+                            {
+                                subHeading: "Reasoning and Military Aptitude (35Q's - 105 marks):",
+                                content: "Logical reasoning, Spatial ability, Problem-solving"
+                            },
+                            {
+                                subHeading: "What is EKT in AFCAT?",
+                                content: "EKT (Engineering Knowledge Test) is an additional paper in AFCAT, only for candidates applying to the Ground Duty (Technical) branch of the Indian Air Force."
+                            },
+                            {
+                                subHeading: "Eligible Candidates For EKT:",
+                                content: "B.E. / B.Tech graduates applying for Ground Duty (Technical Branch) &  Candidates selecting Aeronautical Engineering (Mechanical or Electronics) as their preference during AFCAT"
+                            },
+                        ]
                     },
                 ]
             },
