@@ -18,6 +18,8 @@ import {
 import { Menu as MenuIcon, ExpandMore, ExpandLess } from '@mui/icons-material';
 import { useTheme } from '@mui/material/styles';
 import Link from 'next/link';
+import Fab from '@mui/material/Fab';
+import CallIcon from '@mui/icons-material/Call';
 
 type MenuItems = {
   [key: string]: string[];
@@ -33,18 +35,21 @@ const getItemLink = (item: string, subItem?: string) => {
   switch (item) {
     case 'Home':
       return '/';
-    case 'Gallery':
-      return '/gallery';
-    case 'Contact Us':
-      return '/contact-us';
-    case 'FAQ':
-      return '/faq';
     case 'Written Exam Coaching':
       return `/written-exam-coaching/${formatUrl(subItem!)}`;
     case 'SSB Interviews':
       return `/ssb-interview/${formatUrl(subItem!)}`;
-    case 'About Us':
-      return '/about-us/';
+    case 'More':
+      switch (subItem) {
+        case 'About Us':
+          return '/about-us';
+        case 'Gallery':
+          return '/gallery';
+        case 'Contact Us':
+          return '/contact-us';
+        default:
+          return '/';
+      }
     default:
       return '/';
   }
@@ -210,6 +215,12 @@ export default function Navigation({ menuItems }: NavigationProps) {
               </Box>
             );
           })}
+          <a href="tel:+917989050069">
+            <button type="button" className="bg-black hover:bg-[#870d07] text-white px-4 py-2 rounded-md font-semibold shadow-lg tracking-wider border-b-4 border-[#870d07] duration-100 transition cursor-pointer flex items-center text-sm">
+              <CallIcon className="mr-2 w-2 h-2"/>
+              Call Now
+            </button>
+          </a>
         </Box>
       )}
     </>

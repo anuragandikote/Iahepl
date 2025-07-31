@@ -1,6 +1,4 @@
 import DefenceCard from "./DefenceCards";
-import DefneceCards from "./DefenceCards";
-import BenefitCard from "./DefenceCards";
 
 const defences = [
   {

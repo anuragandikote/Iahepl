@@ -1,6 +1,11 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, {
+  useEffect,
+  useState,
+  forwardRef,
+  useImperativeHandle,
+} from "react";
 import {
   Modal,
   Box,
@@ -11,7 +16,12 @@ import {
   Backdrop,
 } from "@mui/material";
 
-const DelayedModal = () => {
+export type DelayedModalHandle = {
+  openModal: () => void;
+};
+
+// Create a ref-forwarding component
+const DelayedModal = forwardRef((props, ref) => {
   const [showModal, setShowModal] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -22,6 +32,12 @@ const DelayedModal = () => {
     message: "",
   });
 
+  // Expose openModal to parent via ref
+  useImperativeHandle(ref, () => ({
+    openModal: () => setShowModal(true),
+  }));
+
+  // Delay opening modal
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowModal(true);
@@ -29,7 +45,9 @@ const DelayedModal = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
@@ -164,7 +182,11 @@ const DelayedModal = () => {
                 color="primary"
                 disabled={loading}
                 fullWidth
-                sx={{ mt: 1, backgroundColor: "#2A2C30", ":hover": { backgroundColor: "#1f2023" } }}
+                sx={{
+                  mt: 1,
+                  backgroundColor: "#2A2C30",
+                  ":hover": { backgroundColor: "#1f2023" },
+                }}
               >
                 {loading ? "Submitting..." : "Send Message"}
               </Button>
@@ -182,6 +204,6 @@ const DelayedModal = () => {
       </Fade>
     </Modal>
   );
-};
+});
 
 export default DelayedModal;
