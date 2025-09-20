@@ -1,6 +1,6 @@
 import DefenceCard from "./DefenceCards";
 
-const defences = [
+const defences = [ 
   {
     title: "Indian Army",
     image: "/images/army.jpg",

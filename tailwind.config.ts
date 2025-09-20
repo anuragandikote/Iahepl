@@ -2,9 +2,10 @@ import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -13,6 +14,8 @@ const config: Config = {
         leagueSpartan: ["var(--font-league-spartan)"],
       },
       colors: {
+        background: "var(--background)",
+        foreground: "var(--foreground)",
         red: {
           800: '#8B0000',
           900: '#660000',
@@ -27,12 +30,71 @@ const config: Config = {
       animation: {
         marquee: 'marquee 8s linear infinite',
       },
-      images: {
-        unoptimized: true,
-      },
+      typography: (theme: any) => ({
+        DEFAULT: {
+          css: {
+            maxWidth: 'none',
+            color: theme('colors.foreground'),
+            p: {
+              marginTop: theme('spacing.6'),
+              marginBottom: theme('spacing.6'),
+            },
+            h1: {
+              color: theme('colors.foreground'),
+              fontWeight: theme('fontWeight.bold'),
+            },
+            h2: {
+              color: theme('colors.foreground'),
+              fontWeight: theme('fontWeight.semibold'),
+            },
+            h3: {
+              color: theme('colors.foreground'),
+              fontWeight: theme('fontWeight.semibold'),
+            },
+            strong: {
+              color: theme('colors.foreground'),
+            },
+            blockquote: {
+              color: theme('colors.foreground'),
+              borderLeftColor: theme('colors.gray.300'),
+            },
+            code: {
+              color: theme('colors.foreground'),
+            },
+            a: {
+              color: theme('colors.blue.600'),
+              '&:hover': {
+                color: theme('colors.blue.700'),
+              },
+            },
+          },
+        },
+        invert: {
+          css: {
+            '--tw-prose-body': theme('colors.gray.300'),
+            '--tw-prose-headings': theme('colors.white'),
+            '--tw-prose-lead': theme('colors.gray.400'),
+            '--tw-prose-links': theme('colors.blue.400'),
+            '--tw-prose-bold': theme('colors.white'),
+            '--tw-prose-counters': theme('colors.gray.400'),
+            '--tw-prose-bullets': theme('colors.gray.600'),
+            '--tw-prose-hr': theme('colors.gray.700'),
+            '--tw-prose-quotes': theme('colors.gray.100'),
+            '--tw-prose-quote-borders': theme('colors.gray.700'),
+            '--tw-prose-captions': theme('colors.gray.400'),
+            '--tw-prose-code': theme('colors.white'),
+            '--tw-prose-pre-code': theme('colors.gray.300'),
+            '--tw-prose-pre-bg': theme('colors.gray.900'),
+            '--tw-prose-th-borders': theme('colors.gray.600'),
+            '--tw-prose-td-borders': theme('colors.gray.700'),
+          },
+        },
+      }),
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 };
 
 export default config;

@@ -32,6 +32,7 @@ export const menuItems = {
   'More': [
     'About Us',
     'Gallery',
-    'Contact Us'
+    'Contact Us',
+    'Blogs'
   ]
 };

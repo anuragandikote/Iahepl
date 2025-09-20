@@ -13,12 +13,10 @@ import {
   useMediaQuery,
   Menu,
   MenuItem,
-  Typography,
 } from '@mui/material';
 import { Menu as MenuIcon, ExpandMore, ExpandLess } from '@mui/icons-material';
 import { useTheme } from '@mui/material/styles';
 import Link from 'next/link';
-import Fab from '@mui/material/Fab';
 import CallIcon from '@mui/icons-material/Call';
 
 type MenuItems = {
@@ -47,6 +45,8 @@ const getItemLink = (item: string, subItem?: string) => {
           return '/gallery';
         case 'Contact Us':
           return '/contact-us';
+        case 'Blogs':
+          return '/blog';
         default:
           return '/';
       }
