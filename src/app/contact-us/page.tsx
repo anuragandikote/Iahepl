@@ -24,7 +24,6 @@ export default function ContactPage() {
             });
         
             const result = await response;
-            console.log("Success:", result);
             alert("Form submitted successfully!");
             
           } catch (error) {
