@@ -2,6 +2,10 @@
 import React, { useState, useEffect, forwardRef, useImperativeHandle } from "react";
 import { Modal, Box, Typography, TextField, Button, Fade, Backdrop } from "@mui/material";
 
+export type DelayedModalHandle = {
+  openModal: () => void;
+};
+
 const DelayedModal = forwardRef((props, ref) => {
   const [showModal, setShowModal] = useState(false);
   const [submitted, setSubmitted] = useState(false);
