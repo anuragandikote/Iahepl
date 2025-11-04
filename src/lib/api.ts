@@ -1,16 +1,7 @@
 export async function fetchBlogs() {
     try {
-        const res = await fetch(
-            `${process.env.NEXT_PUBLIC_API_URL}/api/iahepl-blogs?populate=*`,
-            {
-                headers: {
-                    Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
-                },
-                next: { revalidate: 60 },
-            }
-        );
+        const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/iahepl-blogs?populate=*`);
 
-        console.log({ res })
         if (!res.ok) {
             throw new Error(`Failed to fetch blogs: ${res.statusText}`);
         }
@@ -25,15 +16,7 @@ export async function fetchBlogs() {
 
 export async function getBlog(slug: string) {
   try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/iahepl-blogs?filters[Slug][$eq]=${slug}&populate=*`,
-      {
-        headers: {
-          Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
-        },
-        next: { revalidate: 60 }, // optional ISR
-      }
-    );
+    const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/iahepl-blogs?filters[Slug][$eq]=${slug}&populate=*`);
 
     if (!res.ok) throw new Error(`Failed to fetch blog: ${res.statusText}`);
 

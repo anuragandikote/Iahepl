@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 
 export default function BlogPostContent({ blog }: { blog: any }) {
   if (!blog) return <div className="py-10">Blog not found.</div>;
@@ -28,8 +29,8 @@ export default function BlogPostContent({ blog }: { blog: any }) {
         <meta property="og:type" content="article" />
       </Head>
 
-      <div className="py-10 container mx-auto">
-        <h1 className="text-4xl font-bold mb-4">{Title}</h1>
+      <div className="py-24 container mx-auto">
+        <h1 className="text-4xl text-black font-bold mb-4">{Title}</h1>
         <div className="text-sm text-gray-500 mb-6">
           Published on - {publishedAt ? new Date(publishedAt).toLocaleDateString() : ""}
         </div>
@@ -49,8 +50,10 @@ export default function BlogPostContent({ blog }: { blog: any }) {
           />
         )}
 
-        <article className="custom-prose mx-auto py-10">
-          <ReactMarkdown>{blog_content}</ReactMarkdown>
+        <article className="custom-prose mx-auto">
+          <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+            {blog_content}
+          </ReactMarkdown>
         </article>
       </div>
     </>

@@ -6,6 +6,7 @@ const config: Config = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/features/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -30,61 +31,65 @@ const config: Config = {
       animation: {
         marquee: 'marquee 8s linear infinite',
       },
+
       typography: (theme: any) => ({
         DEFAULT: {
           css: {
             maxWidth: 'none',
             color: theme('colors.foreground'),
+
+            /* 📝 Paragraph Spacing */
             p: {
               marginTop: theme('spacing.6'),
               marginBottom: theme('spacing.6'),
             },
-            h1: {
-              color: theme('colors.foreground'),
-              fontWeight: theme('fontWeight.bold'),
-            },
-            h2: {
-              color: theme('colors.foreground'),
-              fontWeight: theme('fontWeight.semibold'),
-            },
-            h3: {
-              color: theme('colors.foreground'),
-              fontWeight: theme('fontWeight.semibold'),
-            },
-            strong: {
-              color: theme('colors.foreground'),
-            },
+
+            /* 🧠 Headings */
+            h1: { color: theme('colors.foreground'), fontWeight: theme('fontWeight.bold') },
+            h2: { color: theme('colors.foreground'), fontWeight: theme('fontWeight.semibold') },
+            h3: { color: theme('colors.foreground'), fontWeight: theme('fontWeight.semibold') },
+
+            strong: { color: theme('colors.foreground') },
             blockquote: {
               color: theme('colors.foreground'),
               borderLeftColor: theme('colors.gray.300'),
             },
-            code: {
-              color: theme('colors.foreground'),
-            },
+            code: { color: theme('colors.foreground') },
             a: {
               color: theme('colors.blue.600'),
-              '&:hover': {
-                color: theme('colors.blue.700'),
+              '&:hover': { color: theme('colors.blue.700') },
+            },
+
+            /* 📊 Table Styling */
+            table: {
+              width: '100%',
+              borderCollapse: 'collapse',
+              marginTop: theme('spacing.6'),
+              marginBottom: theme('spacing.6'),
+            },
+            'th, td': {
+              border: `1px solid ${theme('colors.gray.300')}`,
+              padding: theme('spacing.3'),
+              textAlign: 'left',
+            },
+            th: {
+              backgroundColor: theme('colors.gray.100'),
+              fontWeight: theme('fontWeight.semibold'),
+            },
+            tr: {
+              '&:nth-child(even)': {
+                backgroundColor: theme('colors.gray.50'),
               },
             },
           },
         },
+
         invert: {
           css: {
             '--tw-prose-body': theme('colors.gray.300'),
             '--tw-prose-headings': theme('colors.white'),
-            '--tw-prose-lead': theme('colors.gray.400'),
             '--tw-prose-links': theme('colors.blue.400'),
             '--tw-prose-bold': theme('colors.white'),
-            '--tw-prose-counters': theme('colors.gray.400'),
-            '--tw-prose-bullets': theme('colors.gray.600'),
-            '--tw-prose-hr': theme('colors.gray.700'),
-            '--tw-prose-quotes': theme('colors.gray.100'),
-            '--tw-prose-quote-borders': theme('colors.gray.700'),
-            '--tw-prose-captions': theme('colors.gray.400'),
-            '--tw-prose-code': theme('colors.white'),
-            '--tw-prose-pre-code': theme('colors.gray.300'),
-            '--tw-prose-pre-bg': theme('colors.gray.900'),
             '--tw-prose-th-borders': theme('colors.gray.600'),
             '--tw-prose-td-borders': theme('colors.gray.700'),
           },
@@ -92,9 +97,7 @@ const config: Config = {
       }),
     },
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-  ],
+  plugins: [require('@tailwindcss/typography')],
 };
 
 export default config;
