@@ -33,6 +33,6 @@ export const menuItems = {
     'About Us',
     'Gallery',
     'Contact Us',
-    'Blogs'
+    // 'Blogs'
   ]
 };

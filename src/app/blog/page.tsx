@@ -1,10 +1,9 @@
-"use client";
 import React from "react";
 import { fetchBlogs } from "@/lib/api";
 import Image from "next/image";
 import Link from "next/link";
 
-const BlogPage = async () => {
+export default async function BlogPage() {
   const blogs = await fetchBlogs();
 
   return (
@@ -21,7 +20,7 @@ const BlogPage = async () => {
           {blogs.map((post: any) => (
             <Link key={post.id} href={`/blog/${post.Slug}`}>
               <div className="relative group rounded-3xl overflow-hidden bg-[#2D2D2D]/80 border border-[#D6CDA4]/20 shadow-[0_0_30px_rgba(214,205,164,0.05)] transition-all duration-500 hover:shadow-[0_0_60px_rgba(214,205,164,0.15)] hover:-translate-y-2 hover:border-[#D6CDA4]/40">
-
+                
                 {/* Neon Edge */}
                 <div className="absolute inset-0 before:absolute before:inset-0 before:rounded-3xl before:border-2 before:border-transparent before:bg-[linear-gradient(90deg,#870D07,transparent,transparent,#D6CDA4)] before:bg-[length:200%_200%] before:animate-[borderFlow_5s_linear_infinite]" />
 
@@ -60,7 +59,7 @@ const BlogPage = async () => {
                   <div className="mt-auto flex justify-between items-center text-xs text-gray-400">
                     <span className="italic">
                       {post.publishedAt && (
-                        <span>{new Date(post.publishedAt).toISOString().split('T')[0]}</span>
+                        <span>{new Date(post.publishedAt).toISOString().split("T")[0]}</span>
                       )}
                     </span>
                     <span className="text-[#D6CDA4] font-semibold tracking-wide group-hover:text-white">
@@ -75,6 +74,4 @@ const BlogPage = async () => {
       </div>
     </div>
   );
-};
-
-export default BlogPage;
+}
