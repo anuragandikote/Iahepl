@@ -19,6 +19,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-markdown": "^10.1.0",
+    "react-server-dom-webpack": "^19.2.4",
     "react-slick": "^0.30.3",
     "rehype-raw": "^7.0.0",
     "slick-carousel": "^1.8.1"
