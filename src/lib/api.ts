@@ -1,4 +1,4 @@
-const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
+const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'https://victorious-flame-a93e54cb18.strapiapp.com';
 
 export async function fetchBlogs() {
   try {
