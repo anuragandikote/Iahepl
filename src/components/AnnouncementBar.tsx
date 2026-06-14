@@ -16,7 +16,7 @@ export default function AnnouncementBar() {
         ✖️
       </button>
       <div className="animate-bounce max-w-6xl mx-auto text-center font-oswald font-semibold text-sm sm:text-base md:text-lg leading-relaxed mt-8">
-        🚨 New batch for <span className="underline underline-offset-2">CDS / AFCAT / NDA</span> starts from <strong>18th August 2025</strong> & SSB batch starts <strong className='underline'>every Monday</strong> 🚨
+        🚨 New batch for <span className="underline underline-offset-2">CDS / AFCAT / NDA</span> starts from <strong>21st Sept 2026 & 1st Oct 2026</strong> & SSB batch starts <strong className='underline'>every Monday</strong> 🚨
       </div>
     </div>
   );

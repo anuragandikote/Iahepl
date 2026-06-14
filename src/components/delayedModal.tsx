@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, forwardRef, useImperativeHandle } from "react";
-import { Modal, Box, Typography, TextField, Button, Fade, Backdrop } from "@mui/material";
+import { Modal, Box, Typography, TextField, Button, Fade, Backdrop, Select, MenuItem, FormControl, InputLabel } from "@mui/material";
 
 export type DelayedModalHandle = {
   openModal: () => void;
@@ -11,7 +11,7 @@ const DelayedModal = forwardRef((props, ref) => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const [form, setForm] = useState({ name: "", contact: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: "", contact: "", email: "", message: "", interestedIn: "", heardAbout: "" });
 
   useEffect(() => setMounted(true), []);
 
@@ -31,7 +31,7 @@ const DelayedModal = forwardRef((props, ref) => {
     openModal: () => setShowModal(true),
   }));
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+  const handleChange = (e: any) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -45,7 +45,7 @@ const DelayedModal = forwardRef((props, ref) => {
         mode: "no-cors",
       });
       setSubmitted(true);
-      setForm({ name: "", contact: "", email: "", message: "" });
+      setForm({ name: "", contact: "", email: "", message: "", interestedIn: "", heardAbout: "" });
       setTimeout(() => setShowModal(false), 3000);
     } finally {
       setLoading(false);
@@ -89,6 +89,38 @@ const DelayedModal = forwardRef((props, ref) => {
               <TextField name="name" label="Your Name" value={form.name} onChange={handleChange} required />
               <TextField name="contact" label="Contact Number" value={form.contact} onChange={handleChange} required />
               <TextField name="email" label="Email" type="email" value={form.email} onChange={handleChange} required />
+              <FormControl fullWidth required>
+                <InputLabel>Interested In</InputLabel>
+                <Select
+                  name="interestedIn"
+                  value={form.interestedIn}
+                  label="Interested In"
+                  onChange={handleChange}
+                >
+                  <MenuItem value="ssb">SSB</MenuItem>
+                  <MenuItem value="nda">NDA</MenuItem>
+                  <MenuItem value="cds">CDS</MenuItem>
+                  <MenuItem value="afcat">AFCAT</MenuItem>
+                  <MenuItem value="capf">CAPF</MenuItem>
+                  <MenuItem value="career">Career Counseling</MenuItem>
+                  <MenuItem value="other">Other</MenuItem>
+                </Select>
+              </FormControl>
+              <FormControl fullWidth required>
+                <InputLabel>How did you hear about us?</InputLabel>
+                <Select
+                  name="heardAbout"
+                  value={form.heardAbout}
+                  label="How did you hear about us?"
+                  onChange={handleChange}
+                >
+                  <MenuItem value="social_media">Social Media</MenuItem>
+                  <MenuItem value="google_search">Google Search</MenuItem>
+                  <MenuItem value="seminars">Seminars</MenuItem>
+                  <MenuItem value="friend_colleague">Friend/Colleague</MenuItem>
+                  <MenuItem value="other">Other</MenuItem>
+                </Select>
+              </FormControl>
               <TextField name="message" label="Your Message" value={form.message} onChange={handleChange} multiline rows={4} required />
               <Button type="submit" variant="contained" sx={{ bgcolor: "#2A2C30", ":hover": { bgcolor: "#1f2023" } }}>
                 {loading ? "Submitting..." : "Send Message"}
