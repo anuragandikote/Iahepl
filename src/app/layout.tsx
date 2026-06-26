@@ -1,12 +1,14 @@
 import './globals.css';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import SeoFooter from '@/components/SeoFooter';
 import type { Metadata } from 'next';
 import { Oswald, League_Spartan } from 'next/font/google';
 import FloatingCallNow from '@/components/floating-call-now';
 import DelayedModal from '@/components/delayedModal';
 import AnnouncementBar from '@/components/AnnouncementBar';
 import Script from 'next/script';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const oswald = Oswald({
   subsets: ['latin'],
@@ -56,7 +58,7 @@ export default function RootLayout({
           <Header />
           {children}
           <FloatingCallNow />
-          <Footer />
+          <SeoFooter />
         </main>
       </body>
     </html>

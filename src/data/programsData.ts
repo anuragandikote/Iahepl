@@ -210,7 +210,7 @@ export const programsData: { [key: string]: ProgramContent } = {
             coachingFees: [
                 {
                     title: "Coaching Fees",
-                    description: "₹26,000 (Includes Study Material)"
+                    description: "₹27,000 (Includes Study Material)"
                 }
             ],
             coachingDuration: [
@@ -529,11 +529,11 @@ export const programsData: { [key: string]: ProgramContent } = {
             coachingFees: [
                 {
                     title: "CDS IMA coaching fees:",
-                    description: "₹ 26,000/-(Including Material)"
+                    description: "₹ 27,000/-(Including Material)"
                 },
                 {
                     title: "CDS OTA Coaching Fees",
-                    description: "₹ 22,000/-(Including Material)"
+                    description: "₹ 24,000/-(Including Material)"
                 }
             ],
             coachingDuration: [
@@ -852,7 +852,7 @@ export const programsData: { [key: string]: ProgramContent } = {
             coachingFees: [
                 {
                     title: "AFCAT coaching fees:",
-                    description: "₹ 24,000/-(Including Material)"
+                    description: "₹ 25,000/-(Including Material)"
                 },
             ],
             coachingDuration: [
@@ -1129,6 +1129,102 @@ export const programsData: { [key: string]: ProgramContent } = {
                 {
                     title: "Hostel Fees(optional):",
                     description: "₹ 3500/- (Without Food)"
+                }
+            ]
+        }
+    },
+    'career-counselling': {
+        title: "Career Counselling – Your Path to Success",
+        sections: [
+            {
+                heading: "Career Counselling",
+                subHeading: "Expert Guidance for Your Defence Career",
+            },
+            {
+                heading: "Introduction",
+                content: "Get expert career counselling to choose the right path in the Indian Armed Forces. Our experienced counsellors help you understand various entry schemes, eligibility criteria, and career opportunities."
+            },
+            {
+                heading: "What We Offer",
+                points: [
+                    {
+                        subHeading: "Career Assessment",
+                        content: "Evaluate your strengths and aptitude for different defence services"
+                    },
+                    {
+                        subHeading: "Entry Scheme Guidance",
+                        content: "Detailed information about NDA, CDS, AFCAT, CAPF, and other entries"
+                    },
+                    {
+                        subHeading: "Eligibility Check",
+                        content: "Verify your eligibility for various defence examinations"
+                    },
+                    {
+                        subHeading: "Career Roadmap",
+                        content: "Personalized career planning and preparation strategy"
+                    }
+                ]
+            },
+            {
+                heading: "Who Should Attend",
+                points: [
+                    {
+                        subHeading: "Students",
+                        content: "10+2 students exploring defence career options"
+                    },
+                    {
+                        subHeading: "Graduates",
+                        content: "Graduates looking for officer entry opportunities"
+                    },
+                    {
+                        subHeading: "Parents",
+                        content: "Parents seeking guidance for their children's career"
+                    },
+                    {
+                        subHeading: "Working Professionals",
+                        content: "Those considering a career switch to defence services"
+                    }
+                ]
+            },
+            {
+                heading: "Why Choose Our Counselling",
+                points: [
+                    {
+                        subHeading: "Expert Counsellors",
+                        content: "Experienced defence officers and career experts"
+                    },
+                    {
+                        subHeading: "Personalized Approach",
+                        content: "Tailored guidance based on individual profile"
+                    },
+                    {
+                        subHeading: "Comprehensive Information",
+                        content: "Complete details about all defence entries"
+                    },
+                    {
+                        subHeading: "Career Clarity",
+                        content: "Clear direction and actionable advice"
+                    }
+                ]
+            }
+        ],
+        coachingDetails: {
+            coachingFees: [
+                {
+                    title: "Counselling Fees",
+                    description: "₹2,500 per session"
+                }
+            ],
+            coachingDuration: [
+                {
+                    title: "Duration",
+                    description: "1-2 hours per session"
+                }
+            ],
+            coachingHostel: [
+                {
+                    title: "Hostel",
+                    description: "Not applicable for counselling"
                 }
             ]
         }

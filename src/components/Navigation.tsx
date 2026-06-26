@@ -41,8 +41,8 @@ const getItemLink = (item: string, subItem?: string) => {
       switch (subItem) {
         case 'About Us':
           return '/about-us';
-        case 'Gallery':
-          return '/gallery';
+        // case 'Gallery':
+        //   return '/gallery';
         case 'Contact Us':
           return '/contact-us';
         case 'Blogs':

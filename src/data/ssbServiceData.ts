@@ -286,7 +286,7 @@ conducted by senior defence officers...`,
             {
                 title: 'Coaching Details',
                 content: [
-                    {text: ['Fees: ₹12000/-']},
+                    {text: ['Fees: ₹13000/-']},
                     {text: ['Duration: 15 days (Excl. Sundays/Govt. Holidays)']},
                     {text: ['Hostel (Optional): ₹2000/- (Without Food)']}
                 ]
