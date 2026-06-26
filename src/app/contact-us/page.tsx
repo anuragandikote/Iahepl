@@ -1,7 +1,6 @@
 'use client'
 import Image from "next/image";
 import { useState } from "react";
-import photo1 from "@/assets/photo1.jpg";
 
 export default function ContactPage() {
     const [form, setForm] = useState({ name: "", contact: '', email: "", message: "" });
