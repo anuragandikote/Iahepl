@@ -9,7 +9,7 @@ export default function LeadCapturePage() {
       <HeroSection />
       <DefenceSection />
       <CoursesOfferedSection/>
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */} {/* because it's taking too much consumption on vercel. */}
     </div>
   );
 }
